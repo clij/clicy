@@ -29,3 +29,5 @@ Example code for Icys script editor can be found in the [javascript](https://git
 It is recommended to [use clij from Fiji](https://clij.github.io/clij-docs/installationInFiji). Icy support is experimental.
 
 [Back to CLIJ documentation](https://clij.github.io/)
+
+[Imprint](https://clij.github.io/imprint)
