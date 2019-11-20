@@ -10,6 +10,7 @@ Right now, this is very preliminary.
 [Download Icy](http://icy.bioimageanalysis.org/download/). In order to make CLICY run in Icy, download the following jar files, remove the number from their file name endings and put them in the `/plugins/haesleinhuepf/` directory of your Icy installation:
 
 * [clicy-0.2.0.jar](https://github.com/clij/clicy/releases/download/0.2.0/clicy-0.2.0.jar)
+* [clij-advanced-filters_-0.12.4.jar](https://github.com/clij/clij-advanced-filters/releases/download/0.12.4/clij-advanced-filters_-0.12.4.jar)
 * [bridj-0.7.0.jar](https://sites.imagej.net/clij/jars/bridj-0.7.0.jar-20181201213334)
 * [clij_1.4.2.jar](https://github.com/clij/clij/releases/download/1.4.2/clij_-1.4.2.jar)
 * [clij-clearcl-0.10.1.jar](https://github.com/clij/clij/releases/download/1.4.2/clij-clearcl-0.10.1.jar)
