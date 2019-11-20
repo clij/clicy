@@ -36,14 +36,14 @@ public class CLICY {
         return instance;
     }
 
-    public ClearCLBuffer push(Sequence sequence) {
+    public ClearCLBuffer pushSequence(Sequence sequence) {
         SequenceToClearCLBufferConverter converter = new SequenceToClearCLBufferConverter();
         converter.setCLIJ(clij);
         return converter.convert(sequence);
                 //clij.convert(sequence, ClearCLBuffer.class);
     }
 
-    public Sequence pull(ClearCLBuffer buffer) {
+    public Sequence pullSequence(ClearCLBuffer buffer) {
         ClearCLBufferToSequenceConverter converter = new ClearCLBufferToSequenceConverter();
         converter.setCLIJ(clij);
         return converter.convert(buffer);

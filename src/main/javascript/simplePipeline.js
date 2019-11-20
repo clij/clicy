@@ -17,7 +17,7 @@ print(clicy.getGPUName());
 sequence = getSequence();
 
 // push image to GPU
-inputBuffer = clicy.push(sequence);
+inputBuffer = clicy.pushSequence(sequence);
 // allocate memory on GPU for the result
 outputBuffer = clicy.create(inputBuffer);
 
@@ -25,7 +25,7 @@ outputBuffer = clicy.create(inputBuffer);
 clicy.op().blur(inputBuffer, outputBuffer, 5, 5);
 
 // pull result back from GPU
-output = clicy.pull(outputBuffer);
+output = clicy.pullSequence(outputBuffer);
 
 // Show result
 Icy.addSequence(output);
