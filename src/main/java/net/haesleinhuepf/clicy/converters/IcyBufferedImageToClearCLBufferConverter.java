@@ -21,39 +21,37 @@ import java.util.ArrayList;
 
 /**
  * Author: haesleinhuepf
- *         August 2019
+ *         November 2019
  */
 @Plugin(type = CLIJConverterPlugin.class)
-public class SequenceToClearCLBufferConverter extends AbstractCLIJConverter<Sequence, ClearCLBuffer> {
+public class IcyBufferedImageToClearCLBufferConverter extends AbstractCLIJConverter<IcyBufferedImage, ClearCLBuffer> {
 
     @Override
-    public ClearCLBuffer convert(Sequence source) {
+    public ClearCLBuffer convert(IcyBufferedImage source) {
         long[] dimensions = new long[2];
-        ArrayList<IcyBufferedImage> images = source.getAllImage();
 
         dimensions[0] = source.getWidth();
         dimensions[1] = source.getHeight();
 
         long numberOfPixels = dimensions[0] * dimensions[1];
-        if (images.size() > 1) {
+        int numberOfPixelsPerSlice = (int)(dimensions[0] * dimensions[1]);
+
+        if (source.getSizeC() > 1) {
             dimensions = new long[3];
             dimensions[0] = source.getWidth();
             dimensions[1] = source.getHeight();
-            dimensions[2] = images.size();
+            dimensions[2] = source.getSizeC();
             numberOfPixels = numberOfPixels * dimensions[2];
         }
-        IJ.log("images: " + images.size());
-
-        int numberOfPixelsPerSlice = (int)(dimensions[0] * dimensions[1]);
 
         //NativeTypeEnum type;
         if (source.getDataType_() == DataType.UBYTE) {
             ClearCLBuffer target = clij.createCLBuffer(dimensions, NativeTypeEnum.UnsignedByte);
 
             byte[] inputArray = new byte[(int) numberOfPixels];
-            for (int z = 0; z < target.getDepth(); z++) {
-                byte[] sourceArray = images.get(z).getDataXYAsByte(0);
-                System.arraycopy(sourceArray, 0, inputArray, z * numberOfPixelsPerSlice, sourceArray.length);
+            for (int c = 0; c < target.getDepth(); c++) {
+                byte[] sourceArray = source.getDataXYAsByte(c);
+                System.arraycopy(sourceArray, 0, inputArray, c * numberOfPixelsPerSlice, sourceArray.length);
             }
             ByteBuffer byteBuffer = ByteBuffer.wrap(inputArray);
             target.readFrom(byteBuffer, true);
@@ -65,9 +63,9 @@ public class SequenceToClearCLBufferConverter extends AbstractCLIJConverter<Sequ
             IJ.log("start copy");
             long time = System.currentTimeMillis();
             short[] inputArray = new short[(int) numberOfPixels];
-            for (int z = 0; z < target.getDepth(); z++) {
-                short[] sourceArray = images.get(z).getDataXYAsShort(0);
-                System.arraycopy(sourceArray, 0, inputArray, z * numberOfPixelsPerSlice, sourceArray.length);
+            for (int c = 0; c < target.getDepth(); c++) {
+                short[] sourceArray = source.getDataXYAsShort(c);
+                System.arraycopy(sourceArray, 0, inputArray, c * numberOfPixelsPerSlice, sourceArray.length);
             }
             IJ.log("Copy1 took " + (System.currentTimeMillis() - time));
 
@@ -80,9 +78,9 @@ public class SequenceToClearCLBufferConverter extends AbstractCLIJConverter<Sequ
             ClearCLBuffer target = clij.createCLBuffer(dimensions, NativeTypeEnum.Float);
 
             float[] inputArray = new float[(int) numberOfPixels];
-            for (int z = 0; z < target.getDepth(); z++) {
-                float[] sourceArray = images.get(z).getDataXYAsFloat(0);
-                System.arraycopy(sourceArray, 0, inputArray, z * numberOfPixelsPerSlice, sourceArray.length);
+            for (int c = 0; c < target.getDepth(); c++) {
+                float[] sourceArray = source.getDataXYAsFloat(c);
+                System.arraycopy(sourceArray, 0, inputArray, c * numberOfPixelsPerSlice, sourceArray.length);
             }
             FloatBuffer byteBuffer = FloatBuffer.wrap(inputArray);
             target.readFrom(byteBuffer, true);
@@ -100,8 +98,8 @@ public class SequenceToClearCLBufferConverter extends AbstractCLIJConverter<Sequ
     }
 
     @Override
-    public Class<Sequence> getSourceType() {
-        return Sequence.class;
+    public Class<IcyBufferedImage> getSourceType() {
+        return IcyBufferedImage.class;
     }
 
     @Override

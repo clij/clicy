@@ -1,12 +1,16 @@
 package net.haesleinhuepf.clicy;
 
+import icy.image.IcyBufferedImage;
 import icy.sequence.Sequence;
+import net.haesleinhuepf.clicy.converters.ClearCLBufferToIcyBufferedImageConverter;
 import net.haesleinhuepf.clicy.converters.ClearCLBufferToSequenceConverter;
+import net.haesleinhuepf.clicy.converters.IcyBufferedImageToClearCLBufferConverter;
 import net.haesleinhuepf.clicy.converters.SequenceToClearCLBufferConverter;
 import net.haesleinhuepf.clij.CLIJ;
 import net.haesleinhuepf.clij.clearcl.ClearCLBuffer;
 import net.haesleinhuepf.clij.coremem.enums.NativeTypeEnum;
 import net.haesleinhuepf.clij.utilities.CLIJOps;
+import net.haesleinhuepf.clijx.CLIJx;
 
 /**
  * The CLICY gateway.
@@ -14,11 +18,12 @@ import net.haesleinhuepf.clij.utilities.CLIJOps;
  * Author: haesleinhuepf
  *         August 2019
  */
-public class CLICY {
+public class CLICY extends CLIJx {
     private static CLICY instance;
     private final CLIJ clij;
 
     private CLICY(CLIJ clij) {
+        super(clij);
         this.clij = clij;
     }
 
@@ -29,7 +34,7 @@ public class CLICY {
         return instance;
     }
 
-    public CLICY getInstance(String id) {
+    public static CLICY getInstance(String id) {
         if (instance == null) {
             instance = new CLICY(CLIJ.getInstance(id));
         }
@@ -43,11 +48,23 @@ public class CLICY {
                 //clij.convert(sequence, ClearCLBuffer.class);
     }
 
+    public ClearCLBuffer pushIcyBufferedImage(IcyBufferedImage image) {
+        IcyBufferedImageToClearCLBufferConverter converter = new IcyBufferedImageToClearCLBufferConverter();
+        converter.setCLIJ(clij);
+        return converter.convert(image);
+    }
+
     public Sequence pullSequence(ClearCLBuffer buffer) {
         ClearCLBufferToSequenceConverter converter = new ClearCLBufferToSequenceConverter();
         converter.setCLIJ(clij);
         return converter.convert(buffer);
                 //clij.convert(buffer, Sequence.class);
+    }
+
+    public IcyBufferedImage pullIcyBufferedImage(ClearCLBuffer buffer) {
+        ClearCLBufferToIcyBufferedImageConverter converter = new ClearCLBufferToIcyBufferedImageConverter();
+        converter.setCLIJ(clij);
+        return converter.convert(buffer);
     }
 
     public ClearCLBuffer create(long[] dimensions, NativeTypeEnum type) {
@@ -58,9 +75,9 @@ public class CLICY {
         return clij.create(buffer);
     }
 
-    public CLIJOps op() {
-        return clij.op();
-    }
+    //public CLIJOps op() {
+    //    return clij.op();
+    //}
 
     public String getGPUName() {
         return clij.getGPUName();
