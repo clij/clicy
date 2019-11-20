@@ -9,8 +9,5 @@ public class CLIJxBlocks extends Plugin implements PluginLibrary
     public CLIJxBlocks()
     {
         super();
-
-        Protocols p = new Protocols();
-
     }
 }
