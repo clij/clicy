@@ -60,19 +60,16 @@ public class IcyBufferedImageToClearCLBufferConverter extends AbstractCLIJConver
         } else if (source.getDataType_() == DataType.USHORT) {
             ClearCLBuffer target = clij.createCLBuffer(dimensions, NativeTypeEnum.UnsignedShort);
 
-            IJ.log("start copy");
             long time = System.currentTimeMillis();
             short[] inputArray = new short[(int) numberOfPixels];
             for (int c = 0; c < target.getDepth(); c++) {
                 short[] sourceArray = source.getDataXYAsShort(c);
                 System.arraycopy(sourceArray, 0, inputArray, c * numberOfPixelsPerSlice, sourceArray.length);
             }
-            IJ.log("Copy1 took " + (System.currentTimeMillis() - time));
 
             ShortBuffer byteBuffer = ShortBuffer.wrap(inputArray);
             target.readFrom(byteBuffer, true);
 
-            IJ.log("Done");
             return target;
         } else  if (source.getDataType_() == DataType.FLOAT) {
             ClearCLBuffer target = clij.createCLBuffer(dimensions, NativeTypeEnum.Float);
@@ -88,13 +85,6 @@ public class IcyBufferedImageToClearCLBufferConverter extends AbstractCLIJConver
         } else {
             throw new IllegalArgumentException("CLICY converter doesn't support type " + source.getDataType_() + " yet.");
         }
-    }
-
-    public ClearCLBuffer convertLegacy(ImagePlus source) {
-        RandomAccessibleInterval rai = ImageJFunctions.wrapReal(source);
-        RandomAccessibleIntervalToClearCLBufferConverter raitcclbc = new RandomAccessibleIntervalToClearCLBufferConverter();
-        raitcclbc.setCLIJ(clij);
-        return raitcclbc.convert(rai);
     }
 
     @Override

@@ -25,13 +25,16 @@ sequence = getSequence();
 clijx = CLICY.getInstance();
 println(clijx.getGPUName());
 
+// get all images
 println(sequence);
-
 images = sequence.getAllImage();
+
+// generate a new sequence
 outputSequence = new Sequence();
 
 blurredBuffer = null;
 
+// go through the sequence frame by frame
 for (timepoint = 0; timepoint < images.size(); timepoint++) {
 	// push image to GPU
 	inputBuffer = clijx.pushIcyBufferedImage(images.get(timepoint));
@@ -47,13 +50,14 @@ for (timepoint = 0; timepoint < images.size(); timepoint++) {
 	// pull result back from GPU
 	outputImage = clijx.pullIcyBufferedImage(blurredBuffer);
 
-	// add it to a new sequence
+	// add it to the new sequence
 	outputSequence.addImage(timepoint, outputImage);
 
 	inputBuffer.close();
 }
-output0 = outputSequence;
 
+// show result
+output0 = outputSequence;
 Icy.addSequence(output0);
 
 // clean up

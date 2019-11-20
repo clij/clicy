@@ -42,7 +42,7 @@ public class SequenceToClearCLBufferConverter extends AbstractCLIJConverter<Sequ
             dimensions[2] = images.size();
             numberOfPixels = numberOfPixels * dimensions[2];
         }
-        IJ.log("images: " + images.size());
+        //IJ.log("images: " + images.size());
 
         int numberOfPixelsPerSlice = (int)(dimensions[0] * dimensions[1]);
 
@@ -62,19 +62,19 @@ public class SequenceToClearCLBufferConverter extends AbstractCLIJConverter<Sequ
         } else if (source.getDataType_() == DataType.USHORT) {
             ClearCLBuffer target = clij.createCLBuffer(dimensions, NativeTypeEnum.UnsignedShort);
 
-            IJ.log("start copy");
+            //IJ.log("start copy");
             long time = System.currentTimeMillis();
             short[] inputArray = new short[(int) numberOfPixels];
             for (int z = 0; z < target.getDepth(); z++) {
                 short[] sourceArray = images.get(z).getDataXYAsShort(0);
                 System.arraycopy(sourceArray, 0, inputArray, z * numberOfPixelsPerSlice, sourceArray.length);
             }
-            IJ.log("Copy1 took " + (System.currentTimeMillis() - time));
+            //IJ.log("Copy1 took " + (System.currentTimeMillis() - time));
 
             ShortBuffer byteBuffer = ShortBuffer.wrap(inputArray);
             target.readFrom(byteBuffer, true);
 
-            IJ.log("Done");
+            //IJ.log("Done");
             return target;
         } else  if (source.getDataType_() == DataType.FLOAT) {
             ClearCLBuffer target = clij.createCLBuffer(dimensions, NativeTypeEnum.Float);
@@ -90,13 +90,6 @@ public class SequenceToClearCLBufferConverter extends AbstractCLIJConverter<Sequ
         } else {
             throw new IllegalArgumentException("CLICY converter doesn't support type " + source.getDataType_() + " yet.");
         }
-    }
-
-    public ClearCLBuffer convertLegacy(ImagePlus source) {
-        RandomAccessibleInterval rai = ImageJFunctions.wrapReal(source);
-        RandomAccessibleIntervalToClearCLBufferConverter raitcclbc = new RandomAccessibleIntervalToClearCLBufferConverter();
-        raitcclbc.setCLIJ(clij);
-        return raitcclbc.convert(rai);
     }
 
     @Override
