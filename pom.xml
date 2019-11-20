@@ -39,6 +39,23 @@
 			<systemPath>C:/Programs/icy_all_2.0.3.0/icy.jar</systemPath>
 		</dependency>
 		<dependency>
+			<artifactId>.blocks.</artifactId>
+			<groupId>..</groupId>
+			<version>1</version>
+			<scope>system</scope>
+			<systemPath>C:/Programs/icy_all_2.0.3.0/plugins/adufour/blocks/Blocks.jar</systemPath>
+		</dependency>
+		<dependency>
+			<artifactId>.protocols.</artifactId>
+			<groupId>..</groupId>
+			<version>1</version>
+			<scope>system</scope>
+			<systemPath>C:/Programs/icy_all_2.0.3.0/plugins/adufour/protocols/Protocols.jar</systemPath>
+		</dependency>
+
+
+
+		<dependency>
 			<groupId>net.haesleinhuepf</groupId>
 			<artifactId>clij-core</artifactId>
 			<version>1.4.2</version>
