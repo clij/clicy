@@ -43,6 +43,11 @@
 			<artifactId>clij-core</artifactId>
 			<version>1.4.2</version>
 		</dependency>
+		<dependency>
+			<groupId>net.haesleinhuepf</groupId>
+			<artifactId>clij-advanced-filters_</artifactId>
+			<version>0.12.4</version>
+		</dependency>
 	</dependencies>
 	
 	<build>
