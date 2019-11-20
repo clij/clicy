@@ -11,7 +11,7 @@ Right now, this is very preliminary.
 
 * [clicy-0.2.0.jar](https://github.com/clij/clicy/releases/download/0.2.0/clicy-0.2.0.jar)
 * [bridj-0.7.0.jar](https://sites.imagej.net/clij/jars/bridj-0.7.0.jar-20181201213334)
-* [clij_1.4.2.jar](https://github.com/clij/clij/releases/download/1.4.4/clij_-1.4.2.jar)
+* [clij_1.4.2.jar](https://github.com/clij/clij/releases/download/1.4.2/clij_-1.4.2.jar)
 * [clij-clearcl-0.8.4.jar](https://github.com/clij/clij/releases/download/1.1.3/clij-clearcl-0.8.4.jar)
 * [clij-core-1.4.2.jar](https://github.com/clij/clij/releases/download/1.4.2/clij-core-1.4.2.jar)
 * [clij-coremem-0.5.5.jar](https://github.com/clij/clij/releases/download/1.1.3/clij-coremem-0.5.5.jar)
