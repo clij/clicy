@@ -1,0 +1,109 @@
+<protocol VERSION="4">
+<blocks>
+<workflow ID="1692973675" blockType="plugins.adufour.blocks.lang.SequenceFileBatch" className="plugins.adufour.blocks.lang.SequenceFileBatch" collapsed="false" definedName="Sequence file batch" height="744" keepsResults="true" width="1291" xLocation="26" yLocation="16">
+<blocks>
+<block ID="932336461" blockType="plugins.tprovoost.sequenceblocks.extract.ExtractChannel" className="plugins.tprovoost.sequenceblocks.SequenceBlocks" collapsed="false" definedName="Extract channel" height="108" keepsResults="true" width="237" xLocation="26" yLocation="150">
+<variables>
+<input>
+<variable ID="sequence" name="Sequence" runtime="false" visible="true"/>
+<variable ID="channel" name="Channel" runtime="false" value="0" visible="true"/>
+</input>
+<output>
+<variable ID="extracted" name="Extracted" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1950088174" blockType="plugins.tprovoost.scripteditor.scriptblock.Javascript" className="plugins.tprovoost.scripteditor.scriptblock.Javascript" collapsed="false" definedName="Javascript" height="685" keepsResults="true" width="897" xLocation="73" yLocation="295">
+<variables>
+<input>
+<variable ID="Script" name="" runtime="false" value="importClass(net.haesleinhuepf.clicy.CLICY);&#10;importClass(Packages.icy.main.Icy);&#10;&#10;// config&#10;blur_sigma_x = 5;&#10;blur_sigma_y = 5;&#10;blur_sigma_t = 0;&#10;&#10;// get current image from Icy&#10;sequence = input0;&#10;&#10;// init clicy&#10;clijx = CLICY.getInstance();&#10;print(clijx.getGPUName());&#10;&#10;&#10;// push image to GPU&#10;inputBuffer = clijx.pushSequence(sequence);&#10;&#10;// allocate memory on GPU for the result&#10;blurredBuffer = clijx.create(inputBuffer);&#10;maxProjBuffer = clijx.create([inputBuffer.getWidth(), inputBuffer.getHeight()], inputBuffer.getNativeType());&#10;&#10;// process image on GPU&#10;clijx.blur(inputBuffer, blurredBuffer, blur_sigma_x, blur_sigma_y, blur_sigma_t);&#10;&#10;clijx.maximumZProjection(blurredBuffer, maxProjBuffer);&#10;&#10;// pull result back from GPU&#10;output0 = clijx.pullSequence(maxProjBuffer);&#10;&#10;// clean up&#10;inputBuffer.close();&#10;blurredBuffer.close();&#10;maxProjBuffer.close();" visible="true"/>
+<variable ID="Add Input" name="Add Input" runtime="false" value="0" visible="true"/>
+<variable ID="Add output" name="Add output" runtime="false" value="0" visible="true"/>
+<variable ID="input0" name="input0" runtime="false" type="icy.sequence.Sequence" visible="true"/>
+</input>
+<output>
+<variable ID="output0" name="output0" runtime="false" type="icy.sequence.Sequence" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="359784761" blockType="plugins.tprovoost.sequenceblocks.infos.GetFileName" className="plugins.tprovoost.sequenceblocks.SequenceBlocks" collapsed="false" definedName="Get file name" height="131" keepsResults="true" width="206" xLocation="334" yLocation="16">
+<variables>
+<input>
+<variable ID="sequence" name="Sequence" runtime="false" visible="true"/>
+<variable ID="folder" name="Folder" runtime="false" value="true" visible="true"/>
+<variable ID="extension" name="Extension" runtime="false" value="true" visible="true"/>
+</input>
+<output>
+<variable ID="name" name="Filename" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="411637271" blockType="plugins.adufour.blocks.tools.io.AppendFilePath" className="plugins.adufour.blocks.tools.io.AppendFilePath" collapsed="false" definedName="Append file path" height="132" keepsResults="true" width="195" xLocation="638" yLocation="19">
+<variables>
+<input>
+<variable ID="input file" name="Current file" runtime="false" type="java.lang.String" visible="true"/>
+<variable ID="remove ext." name="Remove extension" runtime="false" value="false" visible="true"/>
+<variable ID="suffix" name="Add suffix" runtime="false" value="blur_max" visible="true"/>
+</input>
+<output>
+<variable ID="output file" name="New file" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1292508111" blockType="plugins.tprovoost.sequenceblocks.files.SaveSequence" className="plugins.tprovoost.sequenceblocks.SequenceBlocks" collapsed="false" definedName="Save sequence" height="153" keepsResults="true" width="218" xLocation="871" yLocation="75">
+<variables>
+<input>
+<variable ID="file" name="File" runtime="false" type="java.io.File" visible="true"/>
+<variable ID="sequence" name="Sequence" runtime="false" visible="true"/>
+<variable ID="format" name="Format" runtime="false" value="TIFF" visible="true"/>
+<variable ID="overwrite" name="Overwrite" runtime="false" value="false" visible="true"/>
+<variable ID="multiple file" name="Multiple file" runtime="false" value="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+</blocks>
+<links>
+<link dstBlockID="359784761" dstVarID="sequence" srcBlockID="1692973675" srcVarID="Sequence"/>
+<link dstBlockID="932336461" dstVarID="sequence" srcBlockID="1692973675" srcVarID="Sequence"/>
+<link dstBlockID="1950088174" dstVarID="input0" srcBlockID="932336461" srcVarID="extracted"/>
+<link dstBlockID="1292508111" dstVarID="sequence" srcBlockID="1950088174" srcVarID="output0" srcVarType="icy.sequence.Sequence"/>
+<link dstBlockID="411637271" dstVarID="input file" srcBlockID="359784761" srcVarID="name"/>
+<link dstBlockID="1292508111" dstVarID="file" srcBlockID="411637271" srcVarID="output file"/>
+</links>
+<variables>
+<input>
+<variable ID="folder" blockID="1692973675" value="C:\structure\mpicloud\Projects\201911_CLICY_Deborah_OK" visible="true"/>
+<variable ID="extension" blockID="1692973675" value=".tif" visible="true"/>
+<variable ID="Include sub-folders" blockID="1692973675" value="false" visible="true"/>
+<variable ID="932336461:sequence" blockID="932336461" value="C:/structure/mpicloud/Projects/201911_CLICY_Deborah_OK/20190524_cl16_siCTRL_05.tif" visible="false"/>
+<variable ID="932336461:channel" blockID="932336461" value="0" visible="false"/>
+<variable ID="1950088174:Script" blockID="1950088174" value="importClass(net.haesleinhuepf.clicy.CLICY);&#10;importClass(Packages.icy.main.Icy);&#10;&#10;// config&#10;blur_sigma_x = 5;&#10;blur_sigma_y = 5;&#10;blur_sigma_t = 0;&#10;&#10;// get current image from Icy&#10;sequence = input0;&#10;&#10;// init clicy&#10;clijx = CLICY.getInstance();&#10;print(clijx.getGPUName());&#10;&#10;&#10;// push image to GPU&#10;inputBuffer = clijx.pushSequence(sequence);&#10;&#10;// allocate memory on GPU for the result&#10;blurredBuffer = clijx.create(inputBuffer);&#10;maxProjBuffer = clijx.create([inputBuffer.getWidth(), inputBuffer.getHeight()], inputBuffer.getNativeType());&#10;&#10;// process image on GPU&#10;clijx.blur(inputBuffer, blurredBuffer, blur_sigma_x, blur_sigma_y, blur_sigma_t);&#10;&#10;clijx.maximumZProjection(blurredBuffer, maxProjBuffer);&#10;&#10;// pull result back from GPU&#10;output0 = clijx.pullSequence(maxProjBuffer);&#10;&#10;// clean up&#10;inputBuffer.close();&#10;blurredBuffer.close();&#10;maxProjBuffer.close();" visible="false"/>
+<variable ID="1950088174:Add Input" blockID="1950088174" value="0" visible="false"/>
+<variable ID="1950088174:Add output" blockID="1950088174" value="0" visible="false"/>
+<variable ID="1950088174:input0" blockID="1950088174" value="" visible="false"/>
+<variable ID="359784761:sequence" blockID="359784761" value="C:/structure/mpicloud/Projects/201911_CLICY_Deborah_OK/20190524_cl16_siCTRL_05.tif" visible="false"/>
+<variable ID="359784761:folder" blockID="359784761" value="true" visible="false"/>
+<variable ID="359784761:extension" blockID="359784761" value="true" visible="false"/>
+<variable ID="411637271:input file" blockID="411637271" value="" visible="false"/>
+<variable ID="411637271:remove ext." blockID="411637271" value="false" visible="false"/>
+<variable ID="411637271:suffix" blockID="411637271" value="blur_max" visible="false"/>
+<variable ID="1292508111:file" blockID="1292508111" value="" visible="false"/>
+<variable ID="1292508111:sequence" blockID="1292508111" value="C:/structure/mpicloud/Projects/201911_CLICY_Deborah_OK/20190524_cl16_siCTRL_05.tifblur_max.tif" visible="false"/>
+<variable ID="1292508111:format" blockID="1292508111" value="TIFF" visible="false"/>
+<variable ID="1292508111:overwrite" blockID="1292508111" value="false" visible="false"/>
+<variable ID="1292508111:multiple file" blockID="1292508111" value="false" visible="false"/>
+</input>
+<output>
+<variable ID="iteration" blockID="1692973675" visible="true"/>
+<variable ID="Sequence" blockID="1692973675" visible="true"/>
+<variable ID="932336461:extracted" blockID="932336461" visible="false"/>
+<variable ID="1950088174:output0" blockID="1950088174" visible="false"/>
+<variable ID="359784761:name" blockID="359784761" visible="false"/>
+<variable ID="411637271:output file" blockID="411637271" visible="false"/>
+</output>
+</variables>
+</workflow>
+</blocks>
+<links/>
+</protocol>
