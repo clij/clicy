@@ -1,0 +1,96 @@
+<protocol VERSION="4">
+<blocks>
+<block ID="428057303" blockType="plugins.haesleinhuepf.implementations.PushSequenceBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="Push sequence" height="83" keepsResults="true" width="183" xLocation="51" yLocation="52">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" value="Active Sequence" visible="true"/>
+</input>
+<output>
+<variable ID="output" name="input" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1604450656" blockType="plugins.haesleinhuepf.implementations.generated.CLIJx_Blur2DBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="CLI jx_ blur2 D" height="158" keepsResults="true" width="183" xLocation="288" yLocation="49">
+<variables>
+<input>
+<variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
+<variable ID="source" name="source" runtime="false" visible="true"/>
+<variable ID="sigmaX" name="sigmaX" runtime="false" value="2.0" visible="true"/>
+<variable ID="sigmaY" name="sigmaY" runtime="false" value="2.0" visible="true"/>
+</input>
+<output>
+<variable ID="destination" name="destination" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1990074315" blockType="plugins.haesleinhuepf.implementations.generated.CLIJx_AutomaticThresholdBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="CLI jx_ automatic threshold" height="133" keepsResults="true" width="256" xLocation="287" yLocation="221">
+<variables>
+<input>
+<variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+<variable ID="method" name="method" runtime="false" value="Otsu" visible="true"/>
+</input>
+<output>
+<variable ID="destination" name="destination" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="858062145" blockType="plugins.haesleinhuepf.implementations.generated.CLIJx_MultiplyImageAndScalarBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="CLI jx_ multiply image and scalar" height="133" keepsResults="true" width="288" xLocation="287" yLocation="373">
+<variables>
+<input>
+<variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
+<variable ID="source" name="source" runtime="false" visible="true"/>
+<variable ID="scalar" name="scalar" runtime="false" value="255.0" visible="true"/>
+</input>
+<output>
+<variable ID="destination" name="destination" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="721972619" blockType="plugins.haesleinhuepf.implementations.PullSequenceBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="Pull sequence" height="83" keepsResults="true" width="178" xLocation="613" yLocation="71">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="output" name="input" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1351195085" blockType="plugins.haesleinhuepf.implementations.PullSequenceBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="Pull sequence" height="83" keepsResults="true" width="178" xLocation="625" yLocation="336">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="output" name="input" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1651043987" blockType="plugins.adufour.blocks.tools.sequence.ShowSequence" className="plugins.adufour.blocks.tools.sequence.ShowSequence" collapsed="false" definedName="Show sequence" height="61" keepsResults="true" width="205" xLocation="618" yLocation="172">
+<variables>
+<input>
+<variable ID="sequence" name="sequence" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="1494631195" blockType="plugins.adufour.blocks.tools.sequence.ShowSequence" className="plugins.adufour.blocks.tools.sequence.ShowSequence" collapsed="false" definedName="Show sequence" height="61" keepsResults="true" width="205" xLocation="626" yLocation="443">
+<variables>
+<input>
+<variable ID="sequence" name="sequence" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+</blocks>
+<links>
+<link dstBlockID="1604450656" dstVarID="source" srcBlockID="428057303" srcVarID="output"/>
+<link dstBlockID="1990074315" dstVarID="input" srcBlockID="1604450656" srcVarID="destination"/>
+<link dstBlockID="858062145" dstVarID="source" srcBlockID="1990074315" srcVarID="destination"/>
+<link dstBlockID="721972619" dstVarID="input" srcBlockID="1604450656" srcVarID="destination"/>
+<link dstBlockID="1351195085" dstVarID="input" srcBlockID="858062145" srcVarID="destination"/>
+<link dstBlockID="1651043987" dstVarID="sequence" srcBlockID="721972619" srcVarID="output"/>
+<link dstBlockID="1494631195" dstVarID="sequence" srcBlockID="1351195085" srcVarID="output"/>
+</links>
+</protocol>

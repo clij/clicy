@@ -1,0 +1,14 @@
+package plugins.haesleinhuepf.implementations.generated;
+import plugins.haesleinhuepf.AbstractCLIJxBlock;
+import net.haesleinhuepf.clijx.advancedfilters.DetectLabelEdges;
+// this is generated code. See src/test/java/net/haesleinhuepf/clicy/codegenerator for details
+public class CLIJx_DetectLabelEdgesBlock extends AbstractCLIJxBlock {
+   
+    /**
+     * Takes a labelmap with n labels and generates a (n+1)*(n+1) matrix where all pixels are set to 0 exept those where labels are touching.Only half of the matrix is filled (with x < y). For example, if labels 3 and 4 are touching then the pixel (3,4) in the matrix will be set to 1.
+     */
+    public CLIJx_DetectLabelEdgesBlock() {
+        super(new DetectLabelEdges());
+    }
+
+}

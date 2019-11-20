@@ -1,12 +1,14 @@
 package plugins.haesleinhuepf;
 
 
+import icy.plugin.PluginDescriptor;
 import icy.plugin.abstract_.Plugin;
 import icy.plugin.interface_.PluginBundled;
 import icy.plugin.interface_.PluginLibrary;
 import net.haesleinhuepf.clij.clearcl.ClearCLBuffer;
 import net.haesleinhuepf.clij.macro.AbstractCLIJPlugin;
 import net.haesleinhuepf.clij.macro.CLIJOpenCLProcessor;
+import net.haesleinhuepf.clij.macro.documentation.OffersDocumentation;
 import net.haesleinhuepf.clijx.CLIJx;
 import plugins.adufour.blocks.lang.Block;
 import plugins.adufour.blocks.util.VarList;
@@ -15,15 +17,29 @@ import plugins.adufour.vars.lang.VarBoolean;
 import plugins.adufour.vars.lang.VarDouble;
 import plugins.adufour.vars.lang.VarString;
 
-public class AbstractCLIJBlock extends Plugin implements Block, PluginLibrary, PluginBundled {
+import java.net.URL;
+
+public abstract class AbstractCLIJxBlock extends Plugin implements Block, PluginLibrary, PluginBundled {
 
     AbstractCLIJPlugin plugin;
     VarList inputParameters;
     VarList outputParameters;
 
-    public AbstractCLIJBlock(AbstractCLIJPlugin plugin) {
+    PluginDescriptor descriptor;
+
+    public AbstractCLIJxBlock(AbstractCLIJPlugin plugin) {
         super();
         this.plugin = plugin;
+
+        PluginDescriptor descriptor = super.getDescriptor();
+        if (plugin instanceof OffersDocumentation) {
+            descriptor.setDescription(((OffersDocumentation) plugin).getDescription());
+        }
+        descriptor.setIconUrl("plugins/haesleinhuepf/clij_logo.png");
+        descriptor.setAuthor("Robert Haase");
+        descriptor.setEmail("rhaase@mpi-cbg.de");
+        descriptor.setWeb("https://clij.github.io/clicy/");
+        descriptor.setName(plugin.getName().replace("CLIJ_", "").replace("CLIJx_", "") + " (clij)");
 
         inputParameters = new VarList();
         outputParameters = new VarList();
@@ -54,7 +70,7 @@ public class AbstractCLIJBlock extends Plugin implements Block, PluginLibrary, P
     @Override
     public String getMainPluginClassName()
     {
-        return CLIJBlocks.class.getName();
+        return CLIJxBlocks.class.getName();
     }
 
     @Override
@@ -131,8 +147,21 @@ public class AbstractCLIJBlock extends Plugin implements Block, PluginLibrary, P
         }
     }
 
-    /*@Override
+    public void setDescriptor(PluginDescriptor descriptor) {
+    }
+
+    @Override
+    public PluginDescriptor getDescriptor() {
+        return descriptor;
+    }
+
+    @Override
     public String getName() {
-        return plugin.getName();
-    }*/
+        return descriptor.getName();
+    }
+
+    @Override
+    public String toString() {
+        return descriptor.getName();
+    }
 }

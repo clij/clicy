@@ -3,16 +3,14 @@ package plugins.haesleinhuepf.implementations;
 import icy.sequence.Sequence;
 import net.haesleinhuepf.clicy.CLICY;
 import net.haesleinhuepf.clij.clearcl.ClearCLBuffer;
-import net.haesleinhuepf.clij.macro.AbstractCLIJPlugin;
 import net.haesleinhuepf.clij.macro.modules.Push;
-import net.haesleinhuepf.clijx.CLIJx;
 import plugins.adufour.blocks.util.VarList;
 import plugins.adufour.vars.lang.VarSequence;
 import plugins.adufour.vars.lang.VarString;
-import plugins.haesleinhuepf.AbstractCLIJBlock;
+import plugins.haesleinhuepf.AbstractCLIJxBlock;
 import plugins.haesleinhuepf.VarClearCLBuffer;
 
-public class PushSequenceBlock extends AbstractCLIJBlock {
+public class PushSequenceBlock extends AbstractCLIJxBlock {
     VarString clijInstanceName;
     VarSequence input;
     VarClearCLBuffer output;
