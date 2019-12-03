@@ -2,24 +2,25 @@ package plugins.haesleinhuepf.implementations;
 
 import icy.sequence.Sequence;
 import net.haesleinhuepf.clicy.CLICY;
-import net.haesleinhuepf.clij.macro.modules.Pull;
+import net.haesleinhuepf.clij.clearcl.ClearCLBuffer;
+import net.haesleinhuepf.clij.macro.modules.Push;
 import plugins.adufour.blocks.util.VarList;
 import plugins.adufour.vars.lang.VarSequence;
 import plugins.adufour.vars.lang.VarString;
 import plugins.haesleinhuepf.AbstractCLIJxBlock;
 import plugins.haesleinhuepf.VarClearCLBuffer;
 
-public class PullSequenceBlock extends AbstractCLIJxBlock {
+public class CLIJx_PushSequenceBlock extends AbstractCLIJxBlock {
     VarString clijInstanceName;
-    VarSequence output;
-    VarClearCLBuffer input;
+    VarSequence input;
+    VarClearCLBuffer output;
 
-    public PullSequenceBlock() {
-        super(new Pull());
+    public CLIJx_PushSequenceBlock() {
+        super(new Push());
 
         clijInstanceName = new VarString("", "");
-        output = new VarSequence("input", new Sequence());
-        input = new VarClearCLBuffer("input");
+        input = new VarSequence("input", new Sequence());
+        output = new VarClearCLBuffer("input");
     }
 
     @Override
@@ -35,7 +36,7 @@ public class PullSequenceBlock extends AbstractCLIJxBlock {
     @Override
     public void run() {
         CLICY clijx = CLICY.getInstance(clijInstanceName.getValue());
-        Sequence sequence = clijx.pullSequence(input.getValue());
-        output.setValue(sequence);
+        ClearCLBuffer buffer = clijx.pushSequence(input.getValue());
+        output.setValue(buffer);
     }
 }
