@@ -5,8 +5,7 @@ import net.haesleinhuepf.clijx.advancedfilters.Watershed;
 public class CLIJx_WatershedBlock extends AbstractCLIJxBlock {
    
     /**
-     * Detects local maxima regions. Pixels in the resulting image are set to 1 if
-     * there is no other pixel in a given radius which has a higher intensity, and to 0 otherwise.
+     * Apply a binary watershed to a binary image and introduces black pixels between objects.
      */
     public CLIJx_WatershedBlock() {
         super(new Watershed());

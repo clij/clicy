@@ -5,7 +5,7 @@ import net.haesleinhuepf.clijx.advancedfilters.EqualizeMeanIntensitiesOfSlices;
 public class CLIJx_EqualizeMeanIntensitiesOfSlicesBlock extends AbstractCLIJxBlock {
    
     /**
-     * Determines correction factors for each slice so that the average intensity in all slices can be made the same and applies the factors.
+     * Determines correction factors for each z-slice so that the average intensity in all slices can be made the same and multiplies these factors with the slices.
      * This functionality is similar to the 'Simple Ratio Bleaching Correction' in Fiji.
      */
     public CLIJx_EqualizeMeanIntensitiesOfSlicesBlock() {

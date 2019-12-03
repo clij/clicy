@@ -5,7 +5,7 @@ import net.haesleinhuepf.clijx.matrix.TransposeYZ;
 public class CLIJx_TransposeYZBlock extends AbstractCLIJxBlock {
    
     /**
-     * Transpose Y and Z in an image.
+     * Transpose Y and Z axes of an image.
      */
     public CLIJx_TransposeYZBlock() {
         super(new TransposeYZ());

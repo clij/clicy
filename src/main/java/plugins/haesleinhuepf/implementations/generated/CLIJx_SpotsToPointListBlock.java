@@ -5,8 +5,8 @@ import net.haesleinhuepf.clijx.matrix.SpotsToPointList;
 public class CLIJx_SpotsToPointListBlock extends AbstractCLIJxBlock {
    
     /**
-     * Transforms a spots image as resulting from maxim detection in an image where every column cotains d 
-     * pixels (with d = dimensionality of the original image) with the coordinates of the maxima.
+     * Transforms a spots image as resulting from maximum/minimum detection in an image where every column cotains d 
+     * pixels (with d = dimensionality of the original image) with the coordinates of the maxima/minima.
      */
     public CLIJx_SpotsToPointListBlock() {
         super(new SpotsToPointList());

@@ -5,7 +5,7 @@ import net.haesleinhuepf.clijx.advancedfilters.BlurBuffers3D;
 public class CLIJx_BlurBuffers3DBlock extends AbstractCLIJxBlock {
    
     /**
-     * Computes the Gaussian blurred image of an image given two sigma values in X, Y and Z. Thus, the filterkernel can have non-isotropic shape.
+     * Computes the Gaussian blurred image of an image given sigma values in X, Y and Z. Thus, the filterkernel can have non-isotropic shape.
      * 
      * The implementation is done separable. In case a sigma equals zero, the direction is not blurred.
      */

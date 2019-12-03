@@ -5,7 +5,7 @@ import net.haesleinhuepf.clijx.advancedfilters.LabelToMask;
 public class CLIJx_LabelToMaskBlock extends AbstractCLIJxBlock {
    
     /**
-     * Masks a single label in a label map: Sets all pixels in the target image to 1, where the given label index was present in the label map.
+     * Masks a single label in a label map: Sets all pixels in the target image to 1, where the given label index was present in the label map. Other pixels are set to 0.
      */
     public CLIJx_LabelToMaskBlock() {
         super(new LabelToMask());

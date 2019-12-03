@@ -5,7 +5,7 @@ import net.haesleinhuepf.clijx.advancedfilters.BinaryEdgeDetection;
 public class CLIJx_BinaryEdgeDetectionBlock extends AbstractCLIJxBlock {
    
     /**
-     * Determines pixels/voxels which are on the surface of a binary objects and sets only them to 1 in the destination image.
+     * Determines pixels/voxels which are on the surface of a binary objects and sets only them to 1 in the destination image. All other pixels are set to 0.
      */
     public CLIJx_BinaryEdgeDetectionBlock() {
         super(new BinaryEdgeDetection());

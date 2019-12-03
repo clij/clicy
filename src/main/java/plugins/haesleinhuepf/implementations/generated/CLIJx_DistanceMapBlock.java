@@ -5,7 +5,7 @@ import net.haesleinhuepf.clijx.advancedfilters.DistanceMap;
 public class CLIJx_DistanceMapBlock extends AbstractCLIJxBlock {
    
     /**
-     * Generates a distance map from a binary image.
+     * Generates a distance map from a binary image. Pixels with non-zero value in the binary image are set to a number representing the distance to the closest zero-value pixel.
      */
     public CLIJx_DistanceMapBlock() {
         super(new DistanceMap());

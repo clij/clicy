@@ -5,7 +5,7 @@ import net.haesleinhuepf.clijx.advancedfilters.ExcludeLabelsOnEdges;
 public class CLIJx_ExcludeLabelsOnEdgesBlock extends AbstractCLIJxBlock {
    
     /**
-     * Removes all labels from a label map which touch the edges. Remaining label elements are renumbered afterwards.
+     * Removes all labels from a label map which touch the edges of the image (in X, Y and Z if the image is 3D). Remaining label elements are renumbered afterwards.
      */
     public CLIJx_ExcludeLabelsOnEdgesBlock() {
         super(new ExcludeLabelsOnEdges());

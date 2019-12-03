@@ -5,7 +5,7 @@ import net.haesleinhuepf.clijx.advancedfilters.TopHatSphere;
 public class CLIJx_TopHatSphereBlock extends AbstractCLIJxBlock {
    
     /**
-     * Apply a top-hat filter to the input image.
+     * Applies a top-hat filter for background subtraction to the input image.
      */
     public CLIJx_TopHatSphereBlock() {
         super(new TopHatSphere());
