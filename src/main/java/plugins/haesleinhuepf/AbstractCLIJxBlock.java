@@ -10,6 +10,8 @@ import net.haesleinhuepf.clij.macro.AbstractCLIJPlugin;
 import net.haesleinhuepf.clij.macro.CLIJOpenCLProcessor;
 import net.haesleinhuepf.clij.macro.documentation.OffersDocumentation;
 import net.haesleinhuepf.clijx.CLIJx;
+import net.haesleinhuepf.clijx.utilities.HasAuthor;
+import net.haesleinhuepf.clijx.utilities.HasLicense;
 import plugins.adufour.blocks.lang.Block;
 import plugins.adufour.blocks.util.VarList;
 import plugins.adufour.vars.lang.Var;
@@ -32,11 +34,21 @@ public abstract class AbstractCLIJxBlock extends Plugin implements Block, Plugin
         this.plugin = plugin;
 
         PluginDescriptor descriptor = super.getDescriptor();
+        String description = "";
         if (plugin instanceof OffersDocumentation) {
-            descriptor.setDescription(((OffersDocumentation) plugin).getDescription());
+            description = description + ((OffersDocumentation) plugin).getDescription() + "\n\n";
         }
+        if (plugin instanceof HasLicense) {
+            description = description + ((HasLicense) plugin).getLicense() + "\n\n";
+        }
+        descriptor.setDescription(description);
+
         descriptor.setIconUrl("plugins/haesleinhuepf/clij_logo.png");
-        descriptor.setAuthor("Robert Haase");
+        if (plugin instanceof HasAuthor) {
+            descriptor.setAuthor(((HasAuthor) plugin).getAuthorName());
+        } else {
+            descriptor.setAuthor("Robert Haase");
+        }
         descriptor.setEmail("rhaase@mpi-cbg.de");
         descriptor.setWeb("https://clij.github.io/clicy/");
         descriptor.setName(plugin.getName().replace("CLIJ_", "").replace("CLIJx_", "") + " (clij)");
