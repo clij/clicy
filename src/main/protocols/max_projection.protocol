@@ -1,0 +1,90 @@
+<protocol VERSION="4">
+<blocks>
+<block ID="346005242" blockType="plugins.haesleinhuepf.implementations.CLIJx_PushSequenceBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="CLI jx_ push sequence" height="83" keepsResults="true" width="220" xLocation="9" yLocation="1">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" value="Active Sequence" visible="true"/>
+</input>
+<output>
+<variable ID="output" name="input" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="470980009" blockType="plugins.haesleinhuepf.implementations.generated.CLIJx_SubtractBackground3DBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="CLI jx_ subtract background3 D" height="183" keepsResults="true" width="277" xLocation="33" yLocation="95">
+<variables>
+<input>
+<variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+<variable ID="sigmaX" name="sigmaX" runtime="false" value="10.0" visible="true"/>
+<variable ID="sigmaY" name="sigmaY" runtime="false" value="10.0" visible="true"/>
+<variable ID="sigmaZ" name="sigmaZ" runtime="false" value="0.0" visible="true"/>
+</input>
+<output>
+<variable ID="destination" name="destination" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1147491275" blockType="plugins.haesleinhuepf.implementations.generated.CLIJx_MaximumZProjectionBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="CLI jx_ maximum Z projection" height="108" keepsResults="true" width="269" xLocation="70" yLocation="293">
+<variables>
+<input>
+<variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
+<variable ID="source" name="source" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="destination_max" name="destination_max" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="226305135" blockType="plugins.haesleinhuepf.implementations.CLIJx_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="CLI jx_ release buffer" height="61" keepsResults="true" width="218" xLocation="400" yLocation="292">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="1347108506" blockType="plugins.haesleinhuepf.implementations.CLIJx_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="CLI jx_ release buffer" height="61" keepsResults="true" width="218" xLocation="366" yLocation="120">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="486814456" blockType="plugins.haesleinhuepf.implementations.CLIJx_PullSequenceBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="CLI jx_ pull sequence" height="83" keepsResults="true" width="216" xLocation="113" yLocation="413">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="output" name="input" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="317279303" blockType="plugins.haesleinhuepf.implementations.CLIJx_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="CLI jx_ release buffer" height="61" keepsResults="true" width="218" xLocation="435" yLocation="358">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="1948313638" blockType="plugins.adufour.blocks.tools.sequence.ShowSequence" className="plugins.adufour.blocks.tools.sequence.ShowSequence" collapsed="false" definedName="Show sequence" height="61" keepsResults="true" width="216" xLocation="437" yLocation="435">
+<variables>
+<input>
+<variable ID="sequence" name="sequence" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+</blocks>
+<links>
+<link dstBlockID="1948313638" dstVarID="sequence" srcBlockID="486814456" srcVarID="output"/>
+<link dstBlockID="486814456" dstVarID="input" srcBlockID="1147491275" srcVarID="destination_max"/>
+<link dstBlockID="1147491275" dstVarID="source" srcBlockID="470980009" srcVarID="destination"/>
+<link dstBlockID="470980009" dstVarID="input" srcBlockID="346005242" srcVarID="output"/>
+<link dstBlockID="226305135" dstVarID="input" srcBlockID="1147491275" srcVarID="source"/>
+<link dstBlockID="1347108506" dstVarID="input" srcBlockID="470980009" srcVarID="input"/>
+<link dstBlockID="317279303" dstVarID="input" srcBlockID="486814456" srcVarID="input"/>
+</links>
+</protocol>

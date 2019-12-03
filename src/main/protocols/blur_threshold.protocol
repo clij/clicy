@@ -1,6 +1,6 @@
 <protocol VERSION="4">
 <blocks>
-<block ID="428057303" blockType="plugins.haesleinhuepf.implementations.PushSequenceBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="Push sequence" height="83" keepsResults="true" width="183" xLocation="16" yLocation="9">
+<block ID="428057303" blockType="plugins.haesleinhuepf.implementations.CLIJx_PushSequenceBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="Push sequence" height="83" keepsResults="true" width="183" xLocation="16" yLocation="9">
 <variables>
 <input>
 <variable ID="input" name="input" runtime="false" value="C:/structure/data/blobs.tif" visible="true"/>
@@ -47,7 +47,7 @@
 </output>
 </variables>
 </block>
-<block ID="721972619" blockType="plugins.haesleinhuepf.implementations.PullSequenceBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="Pull sequence" height="83" keepsResults="true" width="178" xLocation="346" yLocation="111">
+<block ID="721972619" blockType="plugins.haesleinhuepf.implementations.CLIJx_PullSequenceBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="Pull sequence" height="83" keepsResults="true" width="178" xLocation="346" yLocation="111">
 <variables>
 <input>
 <variable ID="input" name="input" runtime="false" visible="true"/>
@@ -57,7 +57,7 @@
 </output>
 </variables>
 </block>
-<block ID="1351195085" blockType="plugins.haesleinhuepf.implementations.PullSequenceBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="Pull sequence" height="83" keepsResults="true" width="178" xLocation="352" yLocation="416">
+<block ID="1351195085" blockType="plugins.haesleinhuepf.implementations.CLIJx_PullSequenceBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="Pull sequence" height="83" keepsResults="true" width="178" xLocation="352" yLocation="416">
 <variables>
 <input>
 <variable ID="input" name="input" runtime="false" visible="true"/>
@@ -83,7 +83,7 @@
 <output/>
 </variables>
 </block>
-<block ID="356107839" blockType="plugins.haesleinhuepf.implementations.ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="Release buffer" height="61" keepsResults="true" width="182" xLocation="554" yLocation="111">
+<block ID="356107839" blockType="plugins.haesleinhuepf.implementations.CLIJx_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="Release buffer" height="61" keepsResults="true" width="182" xLocation="554" yLocation="111">
 <variables>
 <input>
 <variable ID="input" name="input" runtime="false" visible="true"/>
@@ -91,7 +91,7 @@
 <output/>
 </variables>
 </block>
-<block ID="1989939314" blockType="plugins.haesleinhuepf.implementations.ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="Release buffer" height="61" keepsResults="true" width="182" xLocation="567" yLocation="416">
+<block ID="1989939314" blockType="plugins.haesleinhuepf.implementations.CLIJx_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="Release buffer" height="61" keepsResults="true" width="182" xLocation="567" yLocation="416">
 <variables>
 <input>
 <variable ID="input" name="input" runtime="false" visible="true"/>
