@@ -60,6 +60,9 @@ public abstract class AbstractCLIJxBlock extends Plugin implements Block, Plugin
         String[] definedParameters = plugin.getParameterHelpText().split(",");
         for (String definedParameter : definedParameters) {
             String[] parameter = definedParameter.trim().split(" ");
+            if (parameter.length < 2) {
+                continue;
+            }
             String parameterType = parameter[0];
             String parameterName = parameter[1];
 
