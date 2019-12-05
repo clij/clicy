@@ -51,7 +51,7 @@ public abstract class AbstractCLIJxBlock extends Plugin implements Block, Plugin
         }
         descriptor.setEmail("rhaase@mpi-cbg.de");
         descriptor.setWeb("https://clij.github.io/clicy/");
-        descriptor.setName(plugin.getName().replace("CLIJ_", "").replace("CLIJx_", "") + " (clij)");
+        descriptor.setName(this.getName());
 
         inputParameters = new VarList();
         outputParameters = new VarList();
@@ -172,7 +172,7 @@ public abstract class AbstractCLIJxBlock extends Plugin implements Block, Plugin
 
     @Override
     public String getName() {
-        return descriptor.getName();
+        return this.getClass().getSimpleName();
     }
 
     @Override
