@@ -8,6 +8,9 @@ import org.scijava.Context;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 public class CLIJxBlockGenerator {
 
@@ -45,6 +48,7 @@ public class CLIJxBlockGenerator {
 
             if (!blocklist.contains("," + simpleClassName.toLowerCase() + ",")) {
                 generateWrapper(simpleClassName, fullClassName, documentation);
+                generateButton(simpleClassName);
                 count++;
             }
 
@@ -52,6 +56,23 @@ public class CLIJxBlockGenerator {
         }
 
         System.out.println("" + count + " wrappers generated.");
+
+    }
+
+    private static void generateButton(String simpleClassName) {
+        //
+
+        try {
+            String template = new String(Files.readAllBytes(Paths.get("src/main/java/plugins/haesleinhuepf/buttons/TemplateEzPlug.java")));
+            template = template.replace("CLIJx_AbsoluteBlock", "CLIJx_" + simpleClassName + "Block");
+            template = template.replace("class TemplateEzPlug", "class " + simpleClassName);
+
+            writeFile("src/main/java/plugins/haesleinhuepf/buttons/" + simpleClassName + ".java", template);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
@@ -78,16 +99,20 @@ public class CLIJxBlockGenerator {
 
         builder.append("}\n");
 
-        File outputTarget = new File("src/main/java/plugins/haesleinhuepf/implementations/generated/" + klassName + ".java");
+        writeFile("src/main/java/plugins/haesleinhuepf/implementations/generated/" + klassName + ".java", builder.toString() );
+
+    }
+
+    private static void writeFile(String filename, String content) {
+        File outputTarget = new File(filename);
 
         try {
             FileWriter writer = new FileWriter(outputTarget);
-            writer.write(builder.toString());
+            writer.write(content);
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
     }
 }

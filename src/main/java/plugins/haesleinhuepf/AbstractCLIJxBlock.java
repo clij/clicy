@@ -5,6 +5,9 @@ import icy.plugin.PluginDescriptor;
 import icy.plugin.abstract_.Plugin;
 import icy.plugin.interface_.PluginBundled;
 import icy.plugin.interface_.PluginLibrary;
+import icy.sequence.Sequence;
+import ij.IJ;
+import net.haesleinhuepf.clicy.CLICY;
 import net.haesleinhuepf.clij.clearcl.ClearCLBuffer;
 import net.haesleinhuepf.clij.macro.AbstractCLIJPlugin;
 import net.haesleinhuepf.clij.macro.CLIJOpenCLProcessor;
@@ -14,18 +17,20 @@ import net.haesleinhuepf.clijx.utilities.HasAuthor;
 import net.haesleinhuepf.clijx.utilities.HasLicense;
 import plugins.adufour.blocks.lang.Block;
 import plugins.adufour.blocks.util.VarList;
+import plugins.adufour.ezplug.*;
 import plugins.adufour.vars.lang.Var;
 import plugins.adufour.vars.lang.VarBoolean;
 import plugins.adufour.vars.lang.VarDouble;
 import plugins.adufour.vars.lang.VarString;
 
 import java.net.URL;
+import java.util.ArrayList;
 
 public abstract class AbstractCLIJxBlock extends Plugin implements Block, PluginLibrary, PluginBundled {
 
     AbstractCLIJPlugin plugin;
-    VarList inputParameters;
-    VarList outputParameters;
+    public VarList inputParameters;
+    public VarList outputParameters;
 
     PluginDescriptor descriptor;
 
@@ -179,4 +184,7 @@ public abstract class AbstractCLIJxBlock extends Plugin implements Block, Plugin
     public String toString() {
         return descriptor.getName();
     }
+
+
+
 }

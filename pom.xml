@@ -12,7 +12,7 @@
 
 	<groupId>net.haesleinhuepf</groupId>
 	<artifactId>clicy</artifactId>
-	<version>0.3.3</version>
+	<version>0.3.4.0</version>
 	<name>CLIJ Icy</name>
 	<description>CLIJ bridge to Icy sequences.</description>
 
@@ -29,28 +29,28 @@
 			<groupId>..</groupId>
 			<version>1</version>
 			<scope>system</scope>
-			<systemPath>C:/Programs/icy_all_2.0.3.0/plugins/adufour/ezplug/EzPlug.jar</systemPath>
+			<systemPath>C:/Programs/icy_all_2.0.1.0/plugins/adufour/ezplug/EzPlug.jar</systemPath>
 		</dependency>
 		<dependency>
 			<artifactId>.icy.</artifactId>
 			<groupId>..</groupId>
 			<version>1</version>
 			<scope>system</scope>
-			<systemPath>C:/Programs/icy_all_2.0.3.0/icy.jar</systemPath>
+			<systemPath>C:/Programs/icy_all_2.0.1.0/icy.jar</systemPath>
 		</dependency>
 		<dependency>
 			<artifactId>.blocks.</artifactId>
 			<groupId>..</groupId>
 			<version>1</version>
 			<scope>system</scope>
-			<systemPath>C:/Programs/icy_all_2.0.3.0/plugins/adufour/blocks/Blocks.jar</systemPath>
+			<systemPath>C:/Programs/icy_all_2.0.1.0/plugins/adufour/blocks/Blocks.jar</systemPath>
 		</dependency>
 		<dependency>
 			<artifactId>.protocols.</artifactId>
 			<groupId>..</groupId>
 			<version>1</version>
 			<scope>system</scope>
-			<systemPath>C:/Programs/icy_all_2.0.3.0/plugins/adufour/protocols/Protocols.jar</systemPath>
+			<systemPath>C:/Programs/icy_all_2.0.1.0/plugins/adufour/protocols/Protocols.jar</systemPath>
 		</dependency>
 
 
