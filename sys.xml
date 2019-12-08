@@ -336,6 +336,12 @@
 <item classname="plugins.haesleinhuepf.buttons.DivideImages" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.PowerImages" priority="med"/>
 </band>
+<band name="Projections">
+<item classname="plugins.haesleinhuepf.buttons.MaximumZProjection" priority="top"/>
+<item classname="plugins.haesleinhuepf.buttons.MeanZProjection" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.MinimumZProjection" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.StandardDeviationZProjection" priority="med"/>
+</band>
 </task>
 <task name="CLIJx transformation / segmentation">
 <band name="Transformation">
@@ -349,14 +355,6 @@
 <item classname="plugins.haesleinhuepf.buttons.TransposeXY" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.TransposeXZ" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.TransposeYZ" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.TenengradFusionOf2" priority="med"/>
-</band>
-<band name="Projections">
-<item classname="plugins.haesleinhuepf.buttons.MaximumZProjection" priority="top"/>
-<item classname="plugins.haesleinhuepf.buttons.MeanZProjection" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.MinimumZProjection" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.StandardDeviationZProjection" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.SumZProjection" priority="med"/>
 </band>
 <band name="Binary">
 <item classname="plugins.haesleinhuepf.buttons.BinaryAnd" priority="top"/>
