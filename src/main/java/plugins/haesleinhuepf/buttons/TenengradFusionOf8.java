@@ -8,9 +8,11 @@ import plugins.adufour.vars.lang.VarBoolean;
 import plugins.adufour.vars.lang.VarDouble;
 import plugins.adufour.vars.lang.VarString;
 import plugins.haesleinhuepf.AbstractCLIJxBlock;
+import plugins.haesleinhuepf.Recorder;
 import plugins.haesleinhuepf.VarClearCLBuffer;
 import plugins.haesleinhuepf.implementations.generated.CLIJx_TenengradFusionOf8Block;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 // this is generated code. See src/test/java/net/haesleinhuepf/clicy/codegenerator for details
@@ -27,12 +29,17 @@ public class TenengradFusionOf8 extends EzPlug {
     @Override
     public void execute() {
         CLICY clijx = CLICY.getInstance((String) plugin.inputParameters.get("cl_device").getValue());
+        Recorder.initRecorder();
+        Recorder.record("\n// " + plugin.getName() + "\n");
 
         ArrayList<ClearCLBuffer> created = new ArrayList<>();
         int count = 0;
         for (Var var : plugin.inputParameters) {
             if (var instanceof VarClearCLBuffer) {
-                var.setValue(clijx.pushSequence((Sequence) ezVar.get(count).getValue()));
+                Sequence sequence = (Sequence) ezVar.get(count).getValue();
+                ClearCLBuffer buffer = clijx.pushSequence(sequence);
+                Recorder.recordPush(sequence, buffer);
+                var.setValue(buffer);
                 created.add(((VarClearCLBuffer) var).getValue());
             }
             count++;
@@ -42,7 +49,20 @@ public class TenengradFusionOf8 extends EzPlug {
             if (var instanceof VarClearCLBuffer) {
                 ClearCLBuffer buffer = ((VarClearCLBuffer) var).getValue();
                 created.add(buffer);
-                addSequence(clijx.pullSequence(buffer));
+                Sequence sequence = clijx.pullSequence(buffer);
+
+                Recorder.recordPull(sequence, buffer);
+                addSequence(sequence);
+
+                SwingUtilities.invokeLater(() -> {
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    sequence.updateChannelsBounds(true);
+                });
+
             }
         }
         for (ClearCLBuffer buffer : created) {
