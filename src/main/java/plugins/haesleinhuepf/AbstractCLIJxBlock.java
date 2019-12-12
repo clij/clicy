@@ -111,6 +111,7 @@ public abstract class AbstractCLIJxBlock extends Plugin implements Block, Plugin
     public void run() {
         CLIJx clijx = CLIJx.getInstance((String) inputParameters.get("cl_device").getValue());
 
+
         String[] definedParameters = plugin.getParameterHelpText().split(",");
         Object[] parameterValues = new Object[definedParameters.length];
         plugin.setClij(clijx.getClij());
@@ -146,11 +147,13 @@ public abstract class AbstractCLIJxBlock extends Plugin implements Block, Plugin
         for (int j = 0; j < parameterValues.length; j++) {
             if (parameterValues[j] == null) {
                 parameterValues[j] = plugin.createOutputBufferFromSource(firstInputBuffer);
+                Recorder.recordCreate((ClearCLBuffer)parameterValues[j]);
             }
         }
         if (plugin instanceof CLIJOpenCLProcessor) {
             ((CLIJOpenCLProcessor) plugin).executeCL();
         }
+        Recorder.recordCommand(plugin.getName(), parameterValues);
 
         i = 0;
         for (String definedParameter : definedParameters) {
