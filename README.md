@@ -58,6 +58,11 @@ clijx.clear():
 ## Installation
 [Download Icy](http://icy.bioimageanalysis.org/download/). Enter "clicy" in Icys search field on top and click on install. Voilá. 
 
+If you want to have the ClIcy toolbar as well, copy over [this XML code](https://github.com/clij/clicy/blob/master/sys.xml#L311-L379) to your local `<icy-folder>/workspace/sys.xml`.
+
+![Image](images/clicy-toolbar.png)
+
+
 ## Examples
 Example code for Icys script editor can be found in the [javascript](https://github.com/clij/clicy/tree/master/src/main/javascript) directory. Also feel free to copy paste some code snippets from [CLIJ](https://github.com/clij/clij-docs/tree/master/src/main/jython) and [CLIJx](https://github.com/clij/clij-advanced-filters/tree/master/src/main/jython) jython examples.
 
