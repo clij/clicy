@@ -32,7 +32,7 @@ public class Recorder extends EzPlug {
         String sequenceName = niceName("sequence", sequence);
         if (bufferNamesOfSequences.containsKey(sequenceName)) {
             String bufferName = bufferNamesOfSequences.get(sequenceName);
-            IJ.log("registering " + sequenceName + " with " + bufferName);
+            //IJ.log("registering " + sequenceName + " with " + bufferName);
             return bufferName;
         } else {
             return null;
@@ -102,7 +102,7 @@ public class Recorder extends EzPlug {
             }
             String bufferName = niceName("buffer", buffer);
             record("" + bufferName + " = clijx.pushSequence(" + sequenceName + ");\n");
-            IJ.log("sequenceA " + sequenceName + bufferName);
+            //IJ.log("sequenceA " + sequenceName + bufferName);
             bufferNamesOfSequences.put(sequenceName, bufferName);
         }
     }
@@ -113,7 +113,7 @@ public class Recorder extends EzPlug {
         String bufferName = niceName("buffer", buffer);
         record("" + sequenceName + " = clijx.pullSequence(" + bufferName + ");\n");
         record("Icy.addSequence(" + sequenceName + ");\n");
-        IJ.log("sequenceB " + sequenceName + bufferName);
+        //IJ.log("sequenceB " + sequenceName + bufferName);
         bufferNamesOfSequences.put(sequenceName, bufferName);
 
     }
@@ -143,6 +143,8 @@ public class Recorder extends EzPlug {
 
     public static void initRecorder() {
         if (area != null && !area.getText().contains("CLICY")) {
+            niceNames.clear();
+            bufferNamesOfSequences.clear();
             record("importClass(net.haesleinhuepf.clicy.CLICY);\n" +
                     "importClass(Packages.icy.main.Icy);\n" +
                     "clijx = CLICY.getInstance();\n");
