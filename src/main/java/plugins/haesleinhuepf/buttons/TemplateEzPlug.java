@@ -49,6 +49,8 @@ public class TemplateEzPlug extends EzPlug {
                 }
                 var.setValue(buffer);
                 created.add(((VarClearCLBuffer) var).getValue());
+            } else {
+                var.setValue(ezVar.get(count).getValue());
             }
             count++;
         }
@@ -61,16 +63,6 @@ public class TemplateEzPlug extends EzPlug {
 
                 Recorder.recordPull(sequence, buffer);
                 addSequence(sequence);
-
-                SwingUtilities.invokeLater(() -> {
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    sequence.updateChannelsBounds(true);
-                });
-
             }
         }
         for (ClearCLBuffer buffer : created) {
