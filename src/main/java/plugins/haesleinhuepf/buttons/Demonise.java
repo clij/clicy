@@ -10,15 +10,15 @@ import plugins.adufour.vars.lang.VarString;
 import plugins.haesleinhuepf.AbstractCLIJxBlock;
 import plugins.haesleinhuepf.Recorder;
 import plugins.haesleinhuepf.VarClearCLBuffer;
-import plugins.haesleinhuepf.implementations.generated.CLIJx_Minimum2DSphereBlock;
+import plugins.haesleinhuepf.implementations.generated.CLIJx_DemoniseBlock;
 
 import javax.swing.*;
 import java.util.ArrayList;
 
 // this is generated code. See src/test/java/net/haesleinhuepf/clicy/codegenerator for details
-public class Minimum2DSphere extends EzPlug {
+public class Demonise extends EzPlug {
 
-    AbstractCLIJxBlock plugin = new CLIJx_Minimum2DSphereBlock();
+    AbstractCLIJxBlock plugin = new CLIJx_DemoniseBlock();
 
     @Override
     public void clean() {

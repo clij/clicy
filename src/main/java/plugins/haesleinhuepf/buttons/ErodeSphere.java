@@ -36,11 +36,21 @@ public class ErodeSphere extends EzPlug {
         int count = 0;
         for (Var var : plugin.inputParameters) {
             if (var instanceof VarClearCLBuffer) {
+
                 Sequence sequence = (Sequence) ezVar.get(count).getValue();
                 ClearCLBuffer buffer = clijx.pushSequence(sequence);
-                Recorder.recordPush(sequence, buffer);
+
+                String bufferName = Recorder.getBufferNameFromSequenceName(sequence);
+                if (bufferName == null) {
+                    Recorder.recordPush(sequence, buffer);
+                } else {
+                    String newBufferName = Recorder.niceName("buffer", buffer);
+                    Recorder.record(newBufferName + " = " + bufferName +";\n");
+                }
                 var.setValue(buffer);
                 created.add(((VarClearCLBuffer) var).getValue());
+            } else {
+                var.setValue(ezVar.get(count).getValue());
             }
             count++;
         }
@@ -53,16 +63,6 @@ public class ErodeSphere extends EzPlug {
 
                 Recorder.recordPull(sequence, buffer);
                 addSequence(sequence);
-
-                SwingUtilities.invokeLater(() -> {
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    sequence.updateChannelsBounds(true);
-                });
-
             }
         }
         for (ClearCLBuffer buffer : created) {
