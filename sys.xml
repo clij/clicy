@@ -309,6 +309,9 @@
 </band>
 </task>
 <task name="CLIJx filters / math">
+<band name="CLIJ">
+<item classname="plugins.haesleinhuepf.Recorder" priority="top"/>
+</band>
 <band name="Filter">
 <item classname="plugins.haesleinhuepf.buttons.Blur2D" priority="top"/>
 <item classname="plugins.haesleinhuepf.buttons.Blur3D" priority="med"/>
@@ -344,6 +347,9 @@
 </band>
 </task>
 <task name="CLIJx transformation / segmentation">
+<band name="CLIJ">
+<item classname="plugins.haesleinhuepf.Recorder" priority="top"/>
+</band>
 <band name="Transformation">
 <item classname="plugins.haesleinhuepf.buttons.AffineTransform2D" priority="top"/>
 <item classname="plugins.haesleinhuepf.buttons.AffineTransform3D" priority="med"/>
@@ -377,7 +383,6 @@
 <item classname="plugins.haesleinhuepf.buttons.ExcludeLabelsOnEdges" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.StatisticsOfLabelledPixels" priority="med"/>
 </band>
-
 </task>
 
 </root>
