@@ -28,6 +28,17 @@ public class Recorder extends EzPlug {
 
     static TextArea area = null;
 
+    public static String getBufferNameFromSequenceName(Sequence sequence) {
+        String sequenceName = niceName("sequence", sequence);
+        if (bufferNamesOfSequences.containsKey(sequenceName)) {
+            String bufferName = bufferNamesOfSequences.get(sequenceName);
+            IJ.log("registering " + sequenceName + " with " + bufferName);
+            return bufferName;
+        } else {
+            return null;
+        }
+    }
+
     @Override
     public void clean() {
 
@@ -35,7 +46,7 @@ public class Recorder extends EzPlug {
 
     @Override
     public void execute() {
-        ScriptEditorPlugin.openInScriptEditor(area.getText(), niceName("new ", new Object()));
+        ScriptEditorPlugin.openInScriptEditor(area.getText() + "\n\n//Clean up memory\nclijx.clear();", niceName("new ", new Object()));
     }
 
     @Override
@@ -48,7 +59,7 @@ public class Recorder extends EzPlug {
             @Override
             protected void addTo(Container container) {
                 container.add(area);
-                area.setPreferredSize(new Dimension(1000, 1000));
+                area.setPreferredSize(new Dimension(200, 150));
             }
 
             @Override
@@ -85,15 +96,25 @@ public class Recorder extends EzPlug {
     public static void recordPush(Sequence sequence, ClearCLBuffer buffer) {
         initRecorder();
         String sequenceName = niceName("sequence", sequence);
-        record("" + sequenceName + " = getSequence();\n");
-        record("" + niceName("buffer", buffer) + " = clijx.pushSequence(" + sequenceName + ");\n");
+        if (area != null) {
+            if (!area.getText().contains(sequenceName + " = clijx.pull" )) {
+                record("" + sequenceName + " = getSequence();\n");
+            }
+            String bufferName = niceName("buffer", buffer);
+            record("" + bufferName + " = clijx.pushSequence(" + sequenceName + ");\n");
+            IJ.log("sequenceA " + sequenceName + bufferName);
+            bufferNamesOfSequences.put(sequenceName, bufferName);
+        }
     }
 
     public static void recordPull(Sequence sequence, ClearCLBuffer buffer) {
         initRecorder();
         String sequenceName = niceName("sequence", sequence);
-        record("" + sequenceName + " = clijx.pullSequence(" + niceName("buffer", buffer) + ");\n");
+        String bufferName = niceName("buffer", buffer);
+        record("" + sequenceName + " = clijx.pullSequence(" + bufferName + ");\n");
         record("Icy.addSequence(" + sequenceName + ");\n");
+        IJ.log("sequenceB " + sequenceName + bufferName);
+        bufferNamesOfSequences.put(sequenceName, bufferName);
 
     }
 
@@ -128,8 +149,9 @@ public class Recorder extends EzPlug {
         }
     }
 
+    private static HashMap<String, String> bufferNamesOfSequences = new HashMap<>();
     private static HashMap<String, String> niceNames = new HashMap<>();
-    private static String niceName(String type, Object object) {
+    public static String niceName(String type, Object object) {
         String key = object.toString();
         String value = "";
         if (niceNames.containsKey(key)) {
