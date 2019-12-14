@@ -308,8 +308,8 @@
 <item classname="plugins.tprovoost.xugglerslider.XugglerSlider" priority="low"/>
 </band>
 </task>
-<task name="CLIJx filters / math">
-<band name="CLIJ">
+<task name="CLIJx filters">
+<band name="CLIJx">
 <item classname="plugins.haesleinhuepf.Recorder" priority="top"/>
 </band>
 <band name="Filter">
@@ -325,19 +325,28 @@
 <item classname="plugins.haesleinhuepf.buttons.Sobel" priority="med"/>
 </band>
 <band name="Background">
-<item classname="plugins.haesleinhuepf.buttons.SubtractBackground2D" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.SubtractBackground2D" priority="top"/>
 <item classname="plugins.haesleinhuepf.buttons.SubtractBackground3D" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.DifferenceOfGaussian2D" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.DifferenceOfGaussian3D" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.TopHatBox" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.BottomHatBox" priority="med"/>
 </band>
+</task>
+<task name="CLIJx math">
+<band name="CLIJx">
+<item classname="plugins.haesleinhuepf.Recorder" priority="top"/>
+</band>
 <band name="Math">
 <item classname="plugins.haesleinhuepf.buttons.Absolute" priority="top"/>
 <item classname="plugins.haesleinhuepf.buttons.AddImagesWeighted" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.MultiplyImages" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.AddImageAndScalar" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.DivideImages" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Invert" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.MultiplyImages" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.PowerImages" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Logarithm" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Exponential" priority="med"/>
 </band>
 <band name="Projections">
 <item classname="plugins.haesleinhuepf.buttons.MaximumZProjection" priority="top"/>
@@ -345,9 +354,16 @@
 <item classname="plugins.haesleinhuepf.buttons.MinimumZProjection" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.StandardDeviationZProjection" priority="med"/>
 </band>
+<band name="Other">
+<item classname="plugins.haesleinhuepf.buttons.ReadImageFromDisc" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.ReadRawImageFromDisc" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.SaveAsTIF" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.EqualizeMeanIntensitiesOfSlices" priority="top"/>
+<item classname="plugins.haesleinhuepf.buttons.TranslationRegistration" priority="med"/>
+</band>
 </task>
 <task name="CLIJx transformation / segmentation">
-<band name="CLIJ">
+<band name="CLIJx">
 <item classname="plugins.haesleinhuepf.Recorder" priority="top"/>
 </band>
 <band name="Transformation">
@@ -379,7 +395,7 @@
 <item classname="plugins.haesleinhuepf.buttons.AutomaticThreshold" priority="top"/>
 <item classname="plugins.haesleinhuepf.buttons.Threshold" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.Watershed" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.ConnectedComponentsLabeling" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.ConnectedComponentsLabeling" priority="top"/>
 <item classname="plugins.haesleinhuepf.buttons.ExcludeLabelsOnEdges" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.StatisticsOfLabelledPixels" priority="med"/>
 </band>
