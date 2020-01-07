@@ -1,6 +1,6 @@
 package plugins.haesleinhuepf.implementations.generated;
 import plugins.haesleinhuepf.AbstractCLIJxBlock;
-import net.haesleinhuepf.clij.macro.modules.Power;
+import net.haesleinhuepf.clijx.advancedmath.Power;
 // this is generated code. See src/test/java/net/haesleinhuepf/clicy/codegenerator for details
 public class CLIJx_PowerBlock extends AbstractCLIJxBlock {
    

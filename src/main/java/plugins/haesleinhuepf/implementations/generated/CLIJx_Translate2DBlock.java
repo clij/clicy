@@ -1,6 +1,6 @@
 package plugins.haesleinhuepf.implementations.generated;
 import plugins.haesleinhuepf.AbstractCLIJxBlock;
-import net.haesleinhuepf.clij.macro.modules.Translate2D;
+import net.haesleinhuepf.clijx.advancedfilters.Translate2D;
 // this is generated code. See src/test/java/net/haesleinhuepf/clicy/codegenerator for details
 public class CLIJx_Translate2DBlock extends AbstractCLIJxBlock {
    

@@ -5,9 +5,9 @@ import net.haesleinhuepf.clijx.advancedmath.Logarithm;
 public class CLIJx_LogarithmBlock extends AbstractCLIJxBlock {
    
     /**
-     * Computes baseE logarithm of all pixels values.
+     * Computes base e logarithm of all pixels values.
      * 
-     * f(x) = logarithm(x)
+     * f(x) = log(x)
      */
     public CLIJx_LogarithmBlock() {
         super(new Logarithm());

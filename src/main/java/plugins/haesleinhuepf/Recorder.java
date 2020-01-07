@@ -12,7 +12,6 @@ import net.haesleinhuepf.clij.clearcl.ClearCLBuffer;
 import net.haesleinhuepf.clij.coremem.enums.NativeTypeEnum;
 import org.scijava.ui.swing.script.PromptPane;
 import plugins.adufour.ezplug.*;
-import plugins.haesleinhuepf.implementations.generated.CLIJx_AbsoluteBlock;
 import plugins.tprovoost.scripteditor.main.ScriptEditorPlugin;
 
 import javax.swing.*;

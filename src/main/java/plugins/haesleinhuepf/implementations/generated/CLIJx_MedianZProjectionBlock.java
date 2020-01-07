@@ -5,7 +5,7 @@ import net.haesleinhuepf.clijx.advancedfilters.MedianZProjection;
 public class CLIJx_MedianZProjectionBlock extends AbstractCLIJxBlock {
    
     /**
-     * Determines the median projection of an image along Z.
+     * Determines the median projection of an image stack along Z.
      */
     public CLIJx_MedianZProjectionBlock() {
         super(new MedianZProjection());

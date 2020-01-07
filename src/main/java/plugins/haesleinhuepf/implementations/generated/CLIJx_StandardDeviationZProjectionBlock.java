@@ -5,7 +5,7 @@ import net.haesleinhuepf.clijx.advancedfilters.StandardDeviationZProjection;
 public class CLIJx_StandardDeviationZProjectionBlock extends AbstractCLIJxBlock {
    
     /**
-     * Determines the standard deviation projection of an image along Z.
+     * Determines the standard deviation projection of an image stack along Z.
      */
     public CLIJx_StandardDeviationZProjectionBlock() {
         super(new StandardDeviationZProjection());

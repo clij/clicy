@@ -1,6 +1,6 @@
 package plugins.haesleinhuepf.implementations.generated;
 import plugins.haesleinhuepf.AbstractCLIJxBlock;
-import net.haesleinhuepf.clij.macro.modules.Mean3DSphere;
+import net.haesleinhuepf.clijx.advancedfilters.Mean3DSphere;
 // this is generated code. See src/test/java/net/haesleinhuepf/clicy/codegenerator for details
 public class CLIJx_Mean3DSphereBlock extends AbstractCLIJxBlock {
    

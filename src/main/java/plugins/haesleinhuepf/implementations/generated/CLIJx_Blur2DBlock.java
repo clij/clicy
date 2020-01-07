@@ -1,6 +1,6 @@
 package plugins.haesleinhuepf.implementations.generated;
 import plugins.haesleinhuepf.AbstractCLIJxBlock;
-import net.haesleinhuepf.clij.macro.modules.Blur2D;
+import net.haesleinhuepf.clijx.advancedfilters.Blur2D;
 // this is generated code. See src/test/java/net/haesleinhuepf/clicy/codegenerator for details
 public class CLIJx_Blur2DBlock extends AbstractCLIJxBlock {
    

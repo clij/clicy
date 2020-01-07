@@ -1,6 +1,6 @@
 package plugins.haesleinhuepf.implementations.generated;
 import plugins.haesleinhuepf.AbstractCLIJxBlock;
-import net.haesleinhuepf.clij.macro.modules.Minimum2DSphere;
+import net.haesleinhuepf.clijx.advancedfilters.Minimum2DSphere;
 // this is generated code. See src/test/java/net/haesleinhuepf/clicy/codegenerator for details
 public class CLIJx_Minimum2DSphereBlock extends AbstractCLIJxBlock {
    

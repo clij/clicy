@@ -1,6 +1,6 @@
 package plugins.haesleinhuepf.implementations.generated;
 import plugins.haesleinhuepf.AbstractCLIJxBlock;
-import net.haesleinhuepf.clij.macro.modules.ConvertUInt16;
+import net.haesleinhuepf.clijx.base.ConvertUInt16;
 // this is generated code. See src/test/java/net/haesleinhuepf/clicy/codegenerator for details
 public class CLIJx_ConvertUInt16Block extends AbstractCLIJxBlock {
    

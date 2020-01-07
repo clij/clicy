@@ -1,6 +1,6 @@
 package plugins.haesleinhuepf.implementations.generated;
 import plugins.haesleinhuepf.AbstractCLIJxBlock;
-import net.haesleinhuepf.clij.macro.modules.MeanSliceBySliceSphere;
+import net.haesleinhuepf.clijx.advancedfilters.MeanSliceBySliceSphere;
 // this is generated code. See src/test/java/net/haesleinhuepf/clicy/codegenerator for details
 public class CLIJx_MeanSliceBySliceSphereBlock extends AbstractCLIJxBlock {
    

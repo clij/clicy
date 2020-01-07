@@ -1,6 +1,6 @@
 package plugins.haesleinhuepf.implementations.generated;
 import plugins.haesleinhuepf.AbstractCLIJxBlock;
-import net.haesleinhuepf.clij.macro.modules.DilateBox;
+import net.haesleinhuepf.clijx.advancedfilters.DilateBox;
 // this is generated code. See src/test/java/net/haesleinhuepf/clicy/codegenerator for details
 public class CLIJx_DilateBoxBlock extends AbstractCLIJxBlock {
    
