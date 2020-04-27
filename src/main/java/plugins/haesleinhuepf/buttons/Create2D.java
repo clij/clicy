@@ -7,18 +7,17 @@ import plugins.adufour.vars.lang.Var;
 import plugins.adufour.vars.lang.VarBoolean;
 import plugins.adufour.vars.lang.VarDouble;
 import plugins.adufour.vars.lang.VarString;
-import plugins.haesleinhuepf.AbstractCLIJxBlock;
+import plugins.haesleinhuepf.AbstractCLIJ2Block;
 import plugins.haesleinhuepf.Recorder;
 import plugins.haesleinhuepf.VarClearCLBuffer;
-import plugins.haesleinhuepf.implementations.generated.CLIJx_Create2DBlock;
+import plugins.haesleinhuepf.implementations.generated.CLIJ2_Create2DBlock;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
 // this is generated code. See src/test/java/net/haesleinhuepf/clicy/codegenerator for details
 public class Create2D extends EzPlug {
 
-    AbstractCLIJxBlock plugin = new CLIJx_Create2DBlock();
+    AbstractCLIJ2Block plugin = new CLIJ2_Create2DBlock();
 
     @Override
     public void clean() {
@@ -28,7 +27,7 @@ public class Create2D extends EzPlug {
 
     @Override
     public void execute() {
-        CLICY clijx = CLICY.getInstance((String) plugin.inputParameters.get("cl_device").getValue());
+        CLICY clij2 = CLICY.getInstance((String) plugin.inputParameters.get("cl_device").getValue());
         Recorder.initRecorder();
         Recorder.record("\n// " + plugin.getName() + "\n");
 
@@ -38,7 +37,7 @@ public class Create2D extends EzPlug {
             if (var instanceof VarClearCLBuffer) {
 
                 Sequence sequence = (Sequence) ezVar.get(count).getValue();
-                ClearCLBuffer buffer = clijx.pushSequence(sequence);
+                ClearCLBuffer buffer = clij2.pushSequence(sequence);
 
                 String bufferName = Recorder.getBufferNameFromSequenceName(sequence);
                 if (bufferName == null) {
@@ -59,14 +58,14 @@ public class Create2D extends EzPlug {
             if (var instanceof VarClearCLBuffer) {
                 ClearCLBuffer buffer = ((VarClearCLBuffer) var).getValue();
                 created.add(buffer);
-                Sequence sequence = clijx.pullSequence(buffer);
+                Sequence sequence = clij2.pullSequence(buffer);
 
                 Recorder.recordPull(sequence, buffer);
                 addSequence(sequence);
             }
         }
         for (ClearCLBuffer buffer : created) {
-            clijx.release(buffer);
+            clij2.release(buffer);
         }
 
     }

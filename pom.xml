@@ -7,12 +7,12 @@
 	<parent>
 		<groupId>net.haesleinhuepf</groupId>
 		<artifactId>clij-parent-pom</artifactId>
-		<version>1.4.3</version>
+		<version>1.6.2</version>
 	</parent>
 
 	<groupId>net.haesleinhuepf</groupId>
 	<artifactId>clicy</artifactId>
-	<version>0.3.6.0</version>
+	<version>0.27.2.0</version>
 	<name>CLIJ Icy</name>
 	<description>CLIJ bridge to Icy sequences.</description>
 
@@ -61,17 +61,10 @@
 			<systemPath>C:/Programs/icy_all_2.0.3.0/plugins/tprovoost/scripteditor/main/ScriptEditorPlugin.jar</systemPath>
 		</dependency>
 
-
-
 		<dependency>
 			<groupId>net.haesleinhuepf</groupId>
-			<artifactId>clij-core</artifactId>
-			<version>1.4.3</version>
-		</dependency>
-		<dependency>
-			<groupId>net.haesleinhuepf</groupId>
-			<artifactId>clij-advanced-filters_</artifactId>
-			<version>0.17.0</version>
+			<artifactId>clij2_</artifactId>
+			<version>0.27.2</version>
 		</dependency>
 	</dependencies>
 	

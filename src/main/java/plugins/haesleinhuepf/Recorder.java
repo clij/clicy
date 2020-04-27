@@ -45,7 +45,7 @@ public class Recorder extends EzPlug {
 
     @Override
     public void execute() {
-        ScriptEditorPlugin.openInScriptEditor(area.getText() + "\n\n//Clean up memory\nclijx.clear();", niceName("new ", new Object()));
+        ScriptEditorPlugin.openInScriptEditor(area.getText() + "\n\n//Clean up memory\nclij2.clear();", niceName("new ", new Object()));
     }
 
     @Override
@@ -72,7 +72,7 @@ public class Recorder extends EzPlug {
     public static void recordCommand(String command, Object[] args) {
         if (area != null) {
             initRecorder();
-            String log = "clijx." + command.replace("CLIJx_", "").replace("CLIJ_", "") + "(";
+            String log = "clij2." + command.replace("CLIJx_", "").replace("CLIJ2_", "").replace("CLIJ_", "") + "(";
             int count = 0;
             for (Object arg : args) {
                 if (count > 0) {
@@ -96,11 +96,11 @@ public class Recorder extends EzPlug {
         initRecorder();
         String sequenceName = niceName("sequence", sequence);
         if (area != null) {
-            if (!area.getText().contains(sequenceName + " = clijx.pull" )) {
+            if (!area.getText().contains(sequenceName + " = clij2.pull" )) {
                 record("" + sequenceName + " = getSequence();\n");
             }
             String bufferName = niceName("buffer", buffer);
-            record("" + bufferName + " = clijx.pushSequence(" + sequenceName + ");\n");
+            record("" + bufferName + " = clij2.pushSequence(" + sequenceName + ");\n");
             //IJ.log("sequenceA " + sequenceName + bufferName);
             bufferNamesOfSequences.put(sequenceName, bufferName);
         }
@@ -110,7 +110,7 @@ public class Recorder extends EzPlug {
         initRecorder();
         String sequenceName = niceName("sequence", sequence);
         String bufferName = niceName("buffer", buffer);
-        record("" + sequenceName + " = clijx.pullSequence(" + bufferName + ");\n");
+        record("" + sequenceName + " = clij2.pullSequence(" + bufferName + ");\n");
         record("Icy.addSequence(" + sequenceName + ");\n");
         //IJ.log("sequenceB " + sequenceName + bufferName);
         bufferNamesOfSequences.put(sequenceName, bufferName);
@@ -127,16 +127,16 @@ public class Recorder extends EzPlug {
         }
 
         if (buffer.getDimension() == 2) {
-            record(niceName("buffer", buffer) + " = clijx.create([" + buffer.getWidth() + ", " + buffer.getHeight() + "], clijx." + type + ");\n");
+            record(niceName("buffer", buffer) + " = clij2.create([" + buffer.getWidth() + ", " + buffer.getHeight() + "], clij2." + type + ");\n");
         } else {
-            record(niceName("buffer", buffer) + " = clijx.create([" + buffer.getWidth() + ", " + buffer.getHeight() + ", " + buffer.getDepth() + "], clijx." + type + ");\n");
+            record(niceName("buffer", buffer) + " = clij2.create([" + buffer.getWidth() + ", " + buffer.getHeight() + ", " + buffer.getDepth() + "], clij2." + type + ");\n");
         }
     }
 
     public static void recordRelease(ClearCLBuffer buffer) {
         initRecorder();
         if (area != null) {
-            record("clijx.release(" + niceName("buffer", buffer) + ");\n");
+            record("clij2.release(" + niceName("buffer", buffer) + ");\n");
         }
     }
 
@@ -146,7 +146,7 @@ public class Recorder extends EzPlug {
             bufferNamesOfSequences.clear();
             record("importClass(net.haesleinhuepf.clicy.CLICY);\n" +
                     "importClass(Packages.icy.main.Icy);\n" +
-                    "clijx = CLICY.getInstance();\n");
+                    "clij2 = CLICY.getInstance();\n");
         }
     }
 

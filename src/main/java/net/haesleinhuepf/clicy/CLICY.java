@@ -1,7 +1,10 @@
 package net.haesleinhuepf.clicy;
 
 import icy.image.IcyBufferedImage;
+import icy.preferences.WorkspaceLocalPreferences;
 import icy.sequence.Sequence;
+import icy.workspace.WorkspaceLoader;
+import ij.gui.WaitForUserDialog;
 import net.haesleinhuepf.clicy.converters.ClearCLBufferToIcyBufferedImageConverter;
 import net.haesleinhuepf.clicy.converters.ClearCLBufferToSequenceConverter;
 import net.haesleinhuepf.clicy.converters.IcyBufferedImageToClearCLBufferConverter;
@@ -10,7 +13,9 @@ import net.haesleinhuepf.clij.CLIJ;
 import net.haesleinhuepf.clij.clearcl.ClearCLBuffer;
 import net.haesleinhuepf.clij.coremem.enums.NativeTypeEnum;
 import net.haesleinhuepf.clij.utilities.CLIJOps;
-import net.haesleinhuepf.clijx.CLIJx;
+import net.haesleinhuepf.clij2.CLIJ2;
+
+import java.io.*;
 
 /**
  * The CLICY gateway.
@@ -18,14 +23,14 @@ import net.haesleinhuepf.clijx.CLIJx;
  * Author: haesleinhuepf
  *         August 2019
  */
-public class CLICY extends CLIJx {
+public class CLICY extends CLIJ2 {
     private static CLICY instance;
-    private final CLIJ clij;
 
     private CLICY(CLIJ clij) {
         super(clij);
         this.clij = clij;
     }
+
 
     public static CLICY getInstance() {
         if (instance == null) {

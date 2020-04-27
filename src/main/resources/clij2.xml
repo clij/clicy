@@ -1,0 +1,93 @@
+<root description="CLIJ2" name="clij2">
+<task name="CLIJ2 filters">
+<band name="CLIJ2">
+<item classname="plugins.haesleinhuepf.Recorder" priority="top"/>
+</band>
+<band name="Filter">
+<item classname="plugins.haesleinhuepf.buttons.GaussianBlur2D" priority="top"/>
+<item classname="plugins.haesleinhuepf.buttons.GaussianBlur3D" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.LaplaceBox" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Maximum2DBox" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Maximum3DBox" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Mean2DBox" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Mean3DBox" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Minimum2DBox" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Minimum3DBox" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Sobel" priority="med"/>
+</band>
+<band name="Background">
+<item classname="plugins.haesleinhuepf.buttons.DifferenceOfGaussian2D" priority="top"/>
+<item classname="plugins.haesleinhuepf.buttons.DifferenceOfGaussian3D" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.TopHatBox" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.BottomHatBox" priority="med"/>
+</band>
+</task>
+<task name="CLIJ2 math">
+<band name="CLIJ2">
+<item classname="plugins.haesleinhuepf.Recorder" priority="top"/>
+</band>
+<band name="Math">
+<item classname="plugins.haesleinhuepf.buttons.Absolute" priority="top"/>
+<item classname="plugins.haesleinhuepf.buttons.AddImagesWeighted" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.AddImageAndScalar" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.DivideImages" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Invert" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.MultiplyImages" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.PowerImages" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Logarithm" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Exponential" priority="med"/>
+</band>
+<band name="Projections">
+<item classname="plugins.haesleinhuepf.buttons.MaximumZProjection" priority="top"/>
+<item classname="plugins.haesleinhuepf.buttons.MeanZProjection" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.MinimumZProjection" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.StandardDeviationZProjection" priority="med"/>
+</band>
+<band name="Other">
+<item classname="plugins.haesleinhuepf.buttons.ReadImageFromDisc" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.ReadRawImageFromDisc" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.SaveAsTIF" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.EqualizeMeanIntensitiesOfSlices" priority="top"/>
+<item classname="plugins.haesleinhuepf.buttons.TranslationRegistration" priority="med"/>
+</band>
+</task>
+<task name="CLIJ2 transformation / segmentation">
+<band name="CLIJ2">
+<item classname="plugins.haesleinhuepf.Recorder" priority="top"/>
+</band>
+<band name="Transformation">
+<item classname="plugins.haesleinhuepf.buttons.AffineTransform2D" priority="top"/>
+<item classname="plugins.haesleinhuepf.buttons.AffineTransform3D" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.ApplyVectorField2D" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.ApplyVectorField3D" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Flip2D" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Flip3D" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Resample" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.TransposeXY" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.TransposeXZ" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.TransposeYZ" priority="med"/>
+</band>
+<band name="Binary">
+<item classname="plugins.haesleinhuepf.buttons.BinaryAnd" priority="top"/>
+<item classname="plugins.haesleinhuepf.buttons.BinaryOr" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.BinaryXOr" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.BinaryNot" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.BinarySubtract" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.BinaryEdgeDetection" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.ErodeBox" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.DilateBox" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.ClosingBox" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.OpeningBox" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Mask" priority="med"/>
+</band>
+<band name="Segmentation">
+<item classname="plugins.haesleinhuepf.buttons.AutomaticThreshold" priority="top"/>
+<item classname="plugins.haesleinhuepf.buttons.Threshold" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Watershed" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.ConnectedComponentsLabeling" priority="top"/>
+<item classname="plugins.haesleinhuepf.buttons.ExcludeLabelsOnEdges" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.StatisticsOfLabelledPixels" priority="med"/>
+</band>
+</task>
+
+</root>

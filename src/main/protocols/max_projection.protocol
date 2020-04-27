@@ -1,6 +1,6 @@
 <protocol VERSION="4">
 <blocks>
-<block ID="1634622602" blockType="plugins.haesleinhuepf.implementations.CLIJx_PushSequenceBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="CLI jx_ push sequence" height="83" keepsResults="true" width="220" xLocation="0" yLocation="0">
+<block ID="1634622602" blockType="plugins.haesleinhuepf.implementations.CLIJ2_PushSequenceBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI jx_ push sequence" height="83" keepsResults="true" width="220" xLocation="0" yLocation="0">
 <variables>
 <input>
 <variable ID="input" name="input" runtime="false" value="Active Sequence" visible="true"/>
@@ -10,7 +10,7 @@
 </output>
 </variables>
 </block>
-<block ID="277496695" blockType="plugins.haesleinhuepf.implementations.generated.CLIJx_MaximumZProjectionBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="CLI jx_ maximum Z projection" height="108" keepsResults="true" width="269" xLocation="19" yLocation="93">
+<block ID="277496695" blockType="plugins.haesleinhuepf.implementations.generated.CLIJx_MaximumZProjectionBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI jx_ maximum Z projection" height="108" keepsResults="true" width="269" xLocation="19" yLocation="93">
 <variables>
 <input>
 <variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
@@ -21,7 +21,7 @@
 </output>
 </variables>
 </block>
-<block ID="2097597652" blockType="plugins.haesleinhuepf.implementations.CLIJx_ShowSequenceBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="CLI jx_ show sequence" height="61" keepsResults="true" width="223" xLocation="17" yLocation="212">
+<block ID="2097597652" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ShowSequenceBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI jx_ show sequence" height="61" keepsResults="true" width="223" xLocation="17" yLocation="212">
 <variables>
 <input>
 <variable ID="input" name="input" runtime="false" visible="true"/>
@@ -29,7 +29,7 @@
 <output/>
 </variables>
 </block>
-<block ID="636793611" blockType="plugins.haesleinhuepf.implementations.CLIJx_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="CLI jx_ release buffer" height="61" keepsResults="true" width="218" xLocation="321" yLocation="118">
+<block ID="636793611" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI jx_ release buffer" height="61" keepsResults="true" width="218" xLocation="321" yLocation="118">
 <variables>
 <input>
 <variable ID="input" name="input" runtime="false" visible="true"/>
@@ -37,7 +37,7 @@
 <output/>
 </variables>
 </block>
-<block ID="1024137049" blockType="plugins.haesleinhuepf.implementations.CLIJx_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJxBlocks" collapsed="false" definedName="CLI jx_ release buffer" height="61" keepsResults="true" width="218" xLocation="325" yLocation="212">
+<block ID="1024137049" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI jx_ release buffer" height="61" keepsResults="true" width="218" xLocation="325" yLocation="212">
 <variables>
 <input>
 <variable ID="input" name="input" runtime="false" visible="true"/>
