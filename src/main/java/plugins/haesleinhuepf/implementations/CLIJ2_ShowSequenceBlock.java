@@ -32,8 +32,8 @@ public class CLIJ2_ShowSequenceBlock extends AbstractCLIJ2Block {
 
     @Override
     public void run() {
-        CLICY clijx = CLICY.getInstance(clijInstanceName.getValue());
-        Sequence sequence = clijx.pullSequence(input.getValue());
+        CLICY clij2 = CLICY.getInstance(clijInstanceName.getValue());
+        Sequence sequence = clij2.pullSequence(input.getValue());
         Icy.getMainInterface().addSequence(sequence);
     }
 }

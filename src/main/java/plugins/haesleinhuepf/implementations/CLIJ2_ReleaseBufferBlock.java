@@ -31,8 +31,8 @@ public class CLIJ2_ReleaseBufferBlock extends AbstractCLIJ2Block {
 
     @Override
     public void run() {
-        CLICY clijx = CLICY.getInstance(clijInstanceName.getValue());
+        CLICY clij2 = CLICY.getInstance(clijInstanceName.getValue());
         ClearCLBuffer buffer = input.getValue();
-        clijx.release(buffer);
+        clij2.release(buffer);
     }
 }

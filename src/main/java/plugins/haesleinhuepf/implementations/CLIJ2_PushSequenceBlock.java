@@ -35,8 +35,8 @@ public class CLIJ2_PushSequenceBlock extends AbstractCLIJ2Block {
 
     @Override
     public void run() {
-        CLICY clijx = CLICY.getInstance(clijInstanceName.getValue());
-        ClearCLBuffer buffer = clijx.pushSequence(input.getValue());
+        CLICY clij2 = CLICY.getInstance(clijInstanceName.getValue());
+        ClearCLBuffer buffer = clij2.pushSequence(input.getValue());
         output.setValue(buffer);
     }
 }
