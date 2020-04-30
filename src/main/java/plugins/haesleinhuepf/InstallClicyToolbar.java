@@ -76,6 +76,7 @@ public class InstallClicyToolbar extends EzPlug {
                 "<task name=\"CLIJ2 filters\">\n" +
                 "<band name=\"CLIJ2\">\n" +
                 "<item classname=\"plugins.haesleinhuepf.Recorder\" priority=\"top\"/>\n" +
+                "<item classname=\"plugins.haesleinhuepf.Clear\" priority=\"top\"/>\n" +
                 "</band>\n" +
                 "<band name=\"Filter\">\n" +
                 "<item classname=\"plugins.haesleinhuepf.buttons.GaussianBlur2D\" priority=\"top\"/>\n" +
@@ -100,6 +101,7 @@ public class InstallClicyToolbar extends EzPlug {
                 "<task name=\"CLIJ2 math\">\n" +
                 "<band name=\"CLIJ2\">\n" +
                 "<item classname=\"plugins.haesleinhuepf.Recorder\" priority=\"top\"/>\n" +
+                "<item classname=\"plugins.haesleinhuepf.Clear\" priority=\"top\"/>\n" +
                 "</band>\n" +
                 "<band name=\"Math\">\n" +
                 "<item classname=\"plugins.haesleinhuepf.buttons.Absolute\" priority=\"top\"/>\n" +
@@ -124,6 +126,7 @@ public class InstallClicyToolbar extends EzPlug {
                 "<task name=\"CLIJ2 transformation / segmentation\">\n" +
                 "<band name=\"CLIJ2\">\n" +
                 "<item classname=\"plugins.haesleinhuepf.Recorder\" priority=\"top\"/>\n" +
+                "<item classname=\"plugins.haesleinhuepf.Clear\" priority=\"top\"/>\n" +
                 "</band>\n" +
                 "<band name=\"Transformation\">\n" +
                 "<item classname=\"plugins.haesleinhuepf.buttons.AffineTransform2D\" priority=\"top\"/>\n" +
