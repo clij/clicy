@@ -1,0 +1,232 @@
+<protocol VERSION="4">
+<blocks>
+<block CommandLineID="" ID="42115069" blockType="plugins.adufour.blocks.tools.input.File" className="plugins.adufour.blocks.tools.input.File" collapsed="false" definedName="File" height="71" keepsResults="true" width="136" xLocation="43" yLocation="14">
+<variables>
+<input>
+<variable ID="file" name="file" runtime="false" value="C:\structure\teaching\neubias_academy_clij2\data\lund1051_resampled.tif" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="49032948" blockType="plugins.tprovoost.sequenceblocks.files.LoadSequence" className="plugins.tprovoost.sequenceblocks.SequenceBlocks" collapsed="false" definedName="Load sequence" height="108" keepsResults="true" width="182" xLocation="43" yLocation="97">
+<variables>
+<input>
+<variable ID="file" name="File" runtime="false" type="java.io.File" visible="true"/>
+<variable ID="serie" name="Series" runtime="false" value="0" visible="true"/>
+</input>
+<output>
+<variable ID="sequence" name="Sequence" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block CommandLineID="" ID="1179724888" blockType="plugins.adufour.blocks.tools.input.File" className="plugins.adufour.blocks.tools.input.File" collapsed="false" definedName="File" height="61" keepsResults="true" width="136" xLocation="36" yLocation="435">
+<variables>
+<input>
+<variable ID="file" name="file" runtime="false" value="C:\structure\teaching\neubias_academy_clij2\data\lund1051_labelled.tif" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="815136811" blockType="plugins.tprovoost.sequenceblocks.files.LoadSequence" className="plugins.tprovoost.sequenceblocks.SequenceBlocks" collapsed="false" definedName="Load sequence" height="108" keepsResults="true" width="182" xLocation="33" yLocation="509">
+<variables>
+<input>
+<variable ID="file" name="File" runtime="false" type="java.io.File" visible="true"/>
+<variable ID="serie" name="Series" runtime="false" value="0" visible="true"/>
+</input>
+<output>
+<variable ID="sequence" name="Sequence" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="192192852" blockType="plugins.haesleinhuepf.implementations.CLIJ2_PushSequenceBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ push sequence" height="83" keepsResults="true" width="220" xLocation="26" yLocation="217">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="output" name="input" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1392777688" blockType="plugins.haesleinhuepf.implementations.CLIJ2_PushSequenceBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ push sequence" height="83" keepsResults="true" width="220" xLocation="29" yLocation="638">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="output" name="input" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="828450198" blockType="plugins.haesleinhuepf.implementations.generated.CLIJ2_MaximumZProjectionBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ maximum Z projection" height="108" keepsResults="true" width="269" xLocation="1093" yLocation="5">
+<variables>
+<input>
+<variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
+<variable ID="source" name="source" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="destination_max" name="destination_max" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1033305352" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ShowSequenceBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ show sequence" height="61" keepsResults="true" width="223" xLocation="1422" yLocation="134">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="1106227897" blockType="plugins.haesleinhuepf.implementations.generated.CLIJ2_GenerateTouchMatrixBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ generate touch matrix" height="108" keepsResults="true" width="267" xLocation="380" yLocation="458">
+<variables>
+<input>
+<variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
+<variable ID="label_map" name="label_map" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="touch_matrix_destination" name="touch_matrix_destination" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1036538857" blockType="plugins.haesleinhuepf.implementations.generated.CLIJ2_CountTouchingNeighborsBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ count touching neighbors" height="108" keepsResults="true" width="312" xLocation="786" yLocation="248">
+<variables>
+<input>
+<variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
+<variable ID="touch_matrix" name="touch_matrix" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="touching_neighbors_count_destination" name="touching_neighbors_count_destination" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1074380008" blockType="plugins.haesleinhuepf.implementations.generated.CLIJ2_ReplaceIntensitiesBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ replace intensities" height="130" keepsResults="true" width="243" xLocation="829" yLocation="381">
+<variables>
+<input>
+<variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+<variable ID="new_values_vector" name="new_values_vector" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="destination" name="destination" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1402679527" blockType="plugins.haesleinhuepf.implementations.generated.CLIJ2_MaximumZProjectionBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ maximum Z projection" height="108" keepsResults="true" width="269" xLocation="1091" yLocation="728">
+<variables>
+<input>
+<variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
+<variable ID="source" name="source" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="destination_max" name="destination_max" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1438825098" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ShowSequenceBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ show sequence" height="65" keepsResults="true" width="223" xLocation="1452" yLocation="775">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="865703407" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ShowSequenceBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ show sequence" height="61" keepsResults="true" width="223" xLocation="1428" yLocation="280">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="1062291295" blockType="plugins.haesleinhuepf.implementations.generated.CLIJ2_MaximumZProjectionBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ maximum Z projection" height="108" keepsResults="true" width="269" xLocation="1103" yLocation="565">
+<variables>
+<input>
+<variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
+<variable ID="source" name="source" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="destination_max" name="destination_max" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1139205653" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ShowSequenceBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ show sequence" height="61" keepsResults="true" width="223" xLocation="1455" yLocation="658">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="1252302150" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ release buffer" height="61" keepsResults="true" width="218" xLocation="1694" yLocation="132">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="2055371144" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ release buffer" height="75" keepsResults="true" width="218" xLocation="1702" yLocation="31">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="305700875" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ release buffer" height="61" keepsResults="true" width="218" xLocation="1720" yLocation="659">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="1954502040" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ release buffer" height="61" keepsResults="true" width="218" xLocation="1725" yLocation="398">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="815105820" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ release buffer" height="61" keepsResults="true" width="218" xLocation="1705" yLocation="277">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="2123236029" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ release buffer" height="61" keepsResults="true" width="218" xLocation="1732" yLocation="784">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+</blocks>
+<links>
+<link dstBlockID="49032948" dstVarID="file" srcBlockID="42115069" srcVarID="file"/>
+<link dstBlockID="192192852" dstVarID="input" srcBlockID="49032948" srcVarID="sequence"/>
+<link dstBlockID="815136811" dstVarID="file" srcBlockID="1179724888" srcVarID="file"/>
+<link dstBlockID="1392777688" dstVarID="input" srcBlockID="815136811" srcVarID="sequence"/>
+<link dstBlockID="828450198" dstVarID="source" srcBlockID="192192852" srcVarID="output"/>
+<link dstBlockID="1106227897" dstVarID="label_map" srcBlockID="1392777688" srcVarID="output"/>
+<link dstBlockID="1033305352" dstVarID="input" srcBlockID="828450198" srcVarID="destination_max"/>
+<link dstBlockID="2055371144" dstVarID="input" srcBlockID="828450198" srcVarID="source"/>
+<link dstBlockID="1252302150" dstVarID="input" srcBlockID="1033305352" srcVarID="input"/>
+<link dstBlockID="1074380008" dstVarID="input" srcBlockID="1106227897" srcVarID="label_map"/>
+<link dstBlockID="1036538857" dstVarID="touch_matrix" srcBlockID="1106227897" srcVarID="touch_matrix_destination"/>
+<link dstBlockID="1074380008" dstVarID="new_values_vector" srcBlockID="1036538857" srcVarID="touching_neighbors_count_destination"/>
+<link dstBlockID="865703407" dstVarID="input" srcBlockID="1036538857" srcVarID="touch_matrix"/>
+<link dstBlockID="1062291295" dstVarID="source" srcBlockID="1074380008" srcVarID="destination"/>
+<link dstBlockID="1402679527" dstVarID="source" srcBlockID="1074380008" srcVarID="input"/>
+<link dstBlockID="1438825098" dstVarID="input" srcBlockID="1402679527" srcVarID="destination_max"/>
+<link dstBlockID="2123236029" dstVarID="input" srcBlockID="1438825098" srcVarID="input"/>
+<link dstBlockID="815105820" dstVarID="input" srcBlockID="865703407" srcVarID="input"/>
+<link dstBlockID="1139205653" dstVarID="input" srcBlockID="1062291295" srcVarID="destination_max"/>
+<link dstBlockID="1954502040" dstVarID="input" srcBlockID="1062291295" srcVarID="source"/>
+<link dstBlockID="305700875" dstVarID="input" srcBlockID="1139205653" srcVarID="input"/>
+</links>
+</protocol>
