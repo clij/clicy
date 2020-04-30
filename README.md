@@ -60,15 +60,15 @@ clij2.clear():
 
 If you want to have the ClIcy toolbar as well, run the "InstallClicyToolbar" plugin:
 
-![Image](images/install-toolbar.png)
+![Image](images/install_toolbar.png)
 
 Afterwards, a message should appear:
 
-![Image](images/install-toolbar2.png)
+![Image](images/install_toolbar2.png)
 
 After restarting Icy, you should see the toolbar:
 
-![Image](images/install-toolbar3.png)
+![Image](images/install_toolbar3.png)
 
 
 ## Examples
