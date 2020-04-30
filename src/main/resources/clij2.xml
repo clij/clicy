@@ -6,14 +6,15 @@
 <band name="Filter">
 <item classname="plugins.haesleinhuepf.buttons.GaussianBlur2D" priority="top"/>
 <item classname="plugins.haesleinhuepf.buttons.GaussianBlur3D" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.LaplaceBox" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.Maximum2DBox" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.Maximum3DBox" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.Mean2DBox" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.Mean3DBox" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.Minimum2DBox" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.Minimum3DBox" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Maximum2DBox" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.Maximum3DBox" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.LaplaceBox" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.Sobel" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.VoronoiOctagon" priority="med"/>
 </band>
 <band name="Background">
 <item classname="plugins.haesleinhuepf.buttons.DifferenceOfGaussian2D" priority="top"/>
@@ -33,22 +34,17 @@
 <item classname="plugins.haesleinhuepf.buttons.DivideImages" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.Invert" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.MultiplyImages" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.PowerImages" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.Logarithm" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.Exponential" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.EqualizeMeanIntensitiesOfSlices" priority="top"/>
+<item classname="plugins.haesleinhuepf.buttons.Exponential" priority="top"/>
+<item classname="plugins.haesleinhuepf.buttons.Power" priority="top"/>
+<item classname="plugins.haesleinhuepf.buttons.Logarithm" priority="top"/>
+<item classname="plugins.haesleinhuepf.buttons.EqualizeMeanIntensitiesOfSlices" priority="top"/>
 </band>
 <band name="Projections">
 <item classname="plugins.haesleinhuepf.buttons.MaximumZProjection" priority="top"/>
 <item classname="plugins.haesleinhuepf.buttons.MeanZProjection" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.MinimumZProjection" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.StandardDeviationZProjection" priority="med"/>
-</band>
-<band name="Other">
-<item classname="plugins.haesleinhuepf.buttons.ReadImageFromDisc" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.ReadRawImageFromDisc" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.SaveAsTIF" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.EqualizeMeanIntensitiesOfSlices" priority="top"/>
-<item classname="plugins.haesleinhuepf.buttons.TranslationRegistration" priority="med"/>
 </band>
 </task>
 <task name="CLIJ2 transformation / segmentation">
@@ -62,6 +58,8 @@
 <item classname="plugins.haesleinhuepf.buttons.ApplyVectorField3D" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.Flip2D" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.Flip3D" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.RotateClockwise" priority="med"/>
+<item classname="plugins.haesleinhuepf.buttons.RotateCounterClockwise" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.Resample" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.TransposeXY" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.TransposeXZ" priority="med"/>
@@ -83,8 +81,26 @@
 <band name="Segmentation">
 <item classname="plugins.haesleinhuepf.buttons.AutomaticThreshold" priority="top"/>
 <item classname="plugins.haesleinhuepf.buttons.Threshold" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.Watershed" priority="med"/>
-<item classname="plugins.haesleinhuepf.buttons.ConnectedComponentsLabeling" priority="top"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdDefault" priority="low"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdOtsu" priority="low"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdHuang" priority="low"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdIntermodes" priority="low"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdIsoData" priority="low"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdIJ_IsoData" priority="low"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdLi" priority="low"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdMaxEntropy" priority="low"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdMean" priority="low"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdMinError" priority="low"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdMinimum" priority="low"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdMoments" priority="low"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdPercentile" priority="low"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdRenyiEntropy" priority="low"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdShanbhag" priority="low"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdTriangle" priority="low"/>
+<item classname="plugins.haesleinhuepf.buttons.ThresholdYen" priority="low"/>
+</band>
+<band name="Labelling">
+<item classname="plugins.haesleinhuepf.buttons.ConnectedComponentsLabelingBox" priority="top"/>
 <item classname="plugins.haesleinhuepf.buttons.ExcludeLabelsOnEdges" priority="med"/>
 <item classname="plugins.haesleinhuepf.buttons.StatisticsOfLabelledPixels" priority="med"/>
 </band>
