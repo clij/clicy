@@ -4,9 +4,12 @@ clicy is a bridge between [Icy](http://icy.bioimageanalysis.org/) and [clij](htt
 
 ![Image](images/clicy-screenshot.png)
 
-Right now, this is very preliminary.
-
 ## Introduction
+It is recommmended to record workflows with the clij2 Recorder by calling Operations from the menu:
+<iframe src="images/clicy_recorder.mp4" width="540" height="310"></iframe>
+[Download video](images/clicy_recorder.mp4)
+
+##Scripting
 For scripting GPU-accelerated workflows in Icy using JavaScript, you should first initalize the GPU: 
 
 ```javascript
@@ -70,11 +73,6 @@ After restarting Icy, you should see the toolbar:
 
 ![Image](images/install_toolbar3.png)
 
-
-## Examples
-It is recommmended to record workflows with the clij2 Recorder by calling Operations from the menu:
-<iframe src="images/clicy_recorder.mp4" width="540" height="310"></iframe>
-[Download video](images/clicy_recorder.mp4)
 
 Example code for Icys script editor can be found in the [javascript](https://github.com/clij/clicy/tree/master/src/main/javascript) directory. 
 Example Icy protocols can be found in the [protocols](https://github.com/clij/clicy/tree/master/src/main/protocols) directory. 
