@@ -39,7 +39,6 @@ public class CLIJ2BlockGenerator {
             "blur2D," +
             "blur3D," +
             "blur3DSliceBySlice," +
-            "clear," +
             "clinfo,").toLowerCase();
 
     public static void main(String ... args) {
