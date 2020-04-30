@@ -58,16 +58,24 @@ clijx.clear():
 ## Installation
 [Download Icy](http://icy.bioimageanalysis.org/download/). Enter "clicy" in Icys search field on top and click on install. Voilá. 
 
-If you want to have the ClIcy toolbar as well, copy over [this XML code](https://github.com/clij/clicy/blob/master/sys.xml#L311-L379) to your local `<icy-folder>/workspace/sys.xml`.
+If you want to have the ClIcy toolbar as well, run the "InstallClicyToolbar" plugin:
 
-![Image](images/clicy-toolbar.png)
+![Image](images/install-toolbar.png)
 
+Afterwards, a message should appear:
+
+![Image](images/install-toolbar2.png)
+
+After restarting Icy, you should see the toolbar:
+
+![Image](images/install-toolbar3.png)
 
 ## Examples
 Example code for Icys script editor can be found in the [javascript](https://github.com/clij/clicy/tree/master/src/main/javascript) directory. Also feel free to copy paste some code snippets from [CLIJ](https://github.com/clij/clij-docs/tree/master/src/main/jython) and [CLIJx](https://github.com/clij/clij-advanced-filters/tree/master/src/main/jython) jython examples.
 
 ## Please note
-Icy support is experimental. But feedback is very welcome and will eventuall lead to Clicy becoming mature. Thanks for your support!
+Icy support is under testing right now. Release is planned in June 2020. Please report any issues. Feedback is very welcome!
+Thanks for your support!
 
 [Back to CLIJ documentation](https://clij.github.io/)
 
