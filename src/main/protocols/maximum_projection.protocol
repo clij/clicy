@@ -1,0 +1,79 @@
+<protocol VERSION="4">
+<blocks>
+<block ID="413721864" blockType="plugins.haesleinhuepf.implementations.CLIJ2_PushSequenceBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ push sequence" height="83" keepsResults="true" width="220" xLocation="18" yLocation="10">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" value="C:/structure/teaching/neubias_academy_clij2/data/lund1051_resampled.tif" visible="true"/>
+</input>
+<output>
+<variable ID="output" name="input" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1022299701" blockType="plugins.haesleinhuepf.implementations.generated.CLIJ2_TopHatBoxBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ top hat box" height="183" keepsResults="true" width="206" xLocation="33" yLocation="123">
+<variables>
+<input>
+<variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+<variable ID="radiusX" name="radiusX" runtime="false" value="2.0" visible="true"/>
+<variable ID="radiusY" name="radiusY" runtime="false" value="2.0" visible="true"/>
+<variable ID="radiusZ" name="radiusZ" runtime="false" value="2.0" visible="true"/>
+</input>
+<output>
+<variable ID="destination" name="destination" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="2126610119" blockType="plugins.haesleinhuepf.implementations.generated.CLIJ2_MaximumZProjectionBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ maximum Z projection" height="108" keepsResults="true" width="269" xLocation="25" yLocation="340">
+<variables>
+<input>
+<variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
+<variable ID="source" name="source" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="destination_max" name="destination_max" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1398693735" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ release buffer" height="61" keepsResults="true" width="218" xLocation="320" yLocation="363">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="2066973844" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ShowSequenceBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ show sequence" height="61" keepsResults="true" width="223" xLocation="23" yLocation="468">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="17940655" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ release buffer" height="61" keepsResults="true" width="218" xLocation="319" yLocation="469">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="789998786" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ release buffer" height="61" keepsResults="true" width="218" xLocation="326" yLocation="149">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+</blocks>
+<links>
+<link dstBlockID="1022299701" dstVarID="input" srcBlockID="413721864" srcVarID="output"/>
+<link dstBlockID="2126610119" dstVarID="source" srcBlockID="1022299701" srcVarID="destination"/>
+<link dstBlockID="2066973844" dstVarID="input" srcBlockID="2126610119" srcVarID="destination_max"/>
+<link dstBlockID="17940655" dstVarID="input" srcBlockID="2066973844" srcVarID="input"/>
+<link dstBlockID="1398693735" dstVarID="input" srcBlockID="2126610119" srcVarID="source"/>
+<link dstBlockID="789998786" dstVarID="input" srcBlockID="1022299701" srcVarID="input"/>
+</links>
+</protocol>
