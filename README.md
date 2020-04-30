@@ -14,9 +14,9 @@ importClass(net.haesleinhuepf.clicy.CLICY);
 importClass(Packages.icy.main.Icy);
 
 // init clicy
-clijx = CLICY.getInstance();
+clij2 = CLICY.getInstance();
 // check which GPU we're using
-print(clijx.getGPUName());
+print(clij2.getGPUName());
 ```
 
 Then, you can push sequences to GPU memory and allocate space for more images:
@@ -25,21 +25,21 @@ Then, you can push sequences to GPU memory and allocate space for more images:
 sequence = getSequence();
 
 // push image to GPU
-inputBuffer = clijx.pushSequence(sequence);
+inputBuffer = clij2.pushSequence(sequence);
 // allocate memory on GPU for the result
-outputBuffer = clijx.create(inputBuffer);
+outputBuffer = clij2.create(inputBuffer);
 ```
 
-You can process them using the [CLIJx API](https://clij.github.io/clij-advanced-filters/reference):
+You can process them using the [CLIJ2 API](https://clij.github.io/clij2-docs/reference):
 ```javascript
 // process image on GPU
-clijx.blur(inputBuffer, outputBuffer, 5, 5);
+clij2.gaussianBlur(inputBuffer, outputBuffer, 5, 5);
 ```
 
 Afterwards, pull the result back and show it in Icy:
 ```javascript
 // pull result back from GPU
-output = clijx.pullSequence(outputBuffer);
+output = clij2.pullSequence(outputBuffer);
 
 // Show result
 Icy.addSequence(output);
@@ -48,10 +48,10 @@ Icy.addSequence(output);
 By the end, always clean up GPU memory:
 ```javascript
 // free memory of specific images
-clijx.release(inputBuffer);
+clij2.release(inputBuffer);
 
 // clean up all images
-clijx.clear():
+clij2.clear():
 ```
  
 
@@ -70,11 +70,18 @@ After restarting Icy, you should see the toolbar:
 
 ![Image](images/install-toolbar3.png)
 
+
 ## Examples
-Example code for Icys script editor can be found in the [javascript](https://github.com/clij/clicy/tree/master/src/main/javascript) directory. Also feel free to copy paste some code snippets from [CLIJ](https://github.com/clij/clij-docs/tree/master/src/main/jython) and [CLIJx](https://github.com/clij/clij-advanced-filters/tree/master/src/main/jython) jython examples.
+It is recommmended to record workflows with the clij2 Recorder by calling Operations from the menu:
+<iframe src="images/clicy_recorder.mp4" width="540" height="310"></iframe>
+[Download video](images/clicy_recorder.mp4)
+
+Example code for Icys script editor can be found in the [javascript](https://github.com/clij/clicy/tree/master/src/main/javascript) directory. 
+Example Icy protocols can be found in the [protocols](https://github.com/clij/clicy/tree/master/src/main/protocols) directory. 
+Also feel free to copy paste from the [CLIJ2 documentation](https://github.com/clij/clij2-docs/reference), it contains Icy code snippets.
 
 ## Please note
-Icy support is under testing right now. Release is planned in June 2020. Please report any issues. Feedback is very welcome!
+clicy is under testing right now. Release is planned in June 2020. Please report any issues. Feedback is very welcome!
 Thanks for your support!
 
 [Back to CLIJ documentation](https://clij.github.io/)
