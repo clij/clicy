@@ -63,23 +63,37 @@ public abstract class AbstractCLIJ2Block extends Plugin implements Block, Plugin
             }
             String parameterType = parameter[0];
             String parameterName = parameter[1];
+            boolean byref = false;
             if (parameterType.contains("ByRef")) {
                 parameterType = parameter[1];
                 parameterName = parameter[2];
+                byref = true;
             }
 
             if (parameterType.compareTo("Image") == 0) {
-                if (parameterName.toLowerCase().contains("destination")) {
+                if (parameterName.toLowerCase().contains("destination") || byref) {
                     outputParameters.add(parameterName, new VarClearCLBuffer(parameterName));
                 } else {
                     inputParameters.add(parameterName, new VarClearCLBuffer(parameterName));
                 }
             } else if (parameterType.compareTo("Number") == 0) {
-                inputParameters.add(parameterName, new VarDouble(parameterName, 2));
+                if (byref) {
+                    outputParameters.add(parameterName, new VarDouble(parameterName, 2));
+                } else {
+                    inputParameters.add(parameterName, new VarDouble(parameterName, 2));
+                }
             } else if (parameterType.compareTo("String") == 0) {
-                inputParameters.add(parameterName, new VarString(parameterName, ""));
+                if (byref) {
+                    outputParameters.add(parameterName, new VarString(parameterName, ""));
+                } else {
+                    inputParameters.add(parameterName, new VarString(parameterName, ""));
+                }
             } else if (parameterType.compareTo("Boolean") == 0) {
-                inputParameters.add(parameterName, new VarBoolean(parameterName, true));
+                if (byref) {
+                    outputParameters.add(parameterName, new VarBoolean(parameterName, true));
+                } else {
+                    inputParameters.add(parameterName, new VarBoolean(parameterName, true));
+                }
             }
         }
     }
@@ -111,6 +125,7 @@ public abstract class AbstractCLIJ2Block extends Plugin implements Block, Plugin
 
         String[] definedParameters = plugin.getParameterHelpText().split(",");
         Object[] parameterValues = new Object[definedParameters.length];
+        Object[] parameterTypes = new Object[definedParameters.length];
         plugin.setClij(clij2.getClij());
         int i = 0;
 
@@ -119,13 +134,16 @@ public abstract class AbstractCLIJ2Block extends Plugin implements Block, Plugin
             String[] parameter = definedParameter.trim().split(" ");
             String parameterType = parameter[0];
             String parameterName = parameter[1];
+            boolean byref = false;
             if (parameterType.contains("ByRef")) {
                 parameterType = parameter[1];
                 parameterName = parameter[2];
+                byref = true;
             }
 
             if (parameterType.compareTo("Image") == 0) {
-                if (parameterName.toLowerCase().contains("destination")) {
+                parameterTypes[i] = ClearCLBuffer.class;
+                if (parameterName.toLowerCase().contains("destination") || byref) {
                     //outputParameters.add(parameterName, new VarClearCLBuffer(parameterName));
                     parameterValues[i] = null;
                 } else {
@@ -135,11 +153,20 @@ public abstract class AbstractCLIJ2Block extends Plugin implements Block, Plugin
                     }
                 }
             } else if (parameterType.compareTo("Number") == 0) {
-                parameterValues[i] = inputParameters.get(parameterName).getValue();
+                parameterTypes[i] = Double.class;
+                if (!byref) {
+                    parameterValues[i] = inputParameters.get(parameterName).getValue();
+                }
             } else if (parameterType.compareTo("String") == 0) {
-                parameterValues[i] = inputParameters.get(parameterName).getValue();
+                parameterTypes[i] = String.class;
+                if (!byref) {
+                    parameterValues[i] = inputParameters.get(parameterName).getValue();
+                }
             } else if (parameterType.compareTo("Boolean") == 0) {
-                parameterValues[i] = inputParameters.get(parameterName).getValue();
+                parameterTypes[i] = Boolean.class;
+                if (!byref) {
+                    parameterValues[i] = inputParameters.get(parameterName).getValue();
+                }
             }
             i++;
         }
@@ -147,8 +174,16 @@ public abstract class AbstractCLIJ2Block extends Plugin implements Block, Plugin
         plugin.setArgs(parameterValues);
         for (int j = 0; j < parameterValues.length; j++) {
             if (parameterValues[j] == null) {
-                parameterValues[j] = plugin.createOutputBufferFromSource(firstInputBuffer);
-                Recorder.recordCreate((ClearCLBuffer)parameterValues[j]);
+                if (parameterTypes[j] == ClearCLBuffer.class) {
+                    parameterValues[j] = plugin.createOutputBufferFromSource(firstInputBuffer);
+                    Recorder.recordCreate((ClearCLBuffer)parameterValues[j]);
+                } else if (parameterTypes[j] == Double.class) {
+                    parameterValues[j] = new Double[1];
+                } else if (parameterTypes[j] == String.class) {
+                    parameterValues[j] = new String[1];
+                } else if (parameterTypes[j] == Boolean.class) {
+                    parameterValues[j] = new Boolean[1];
+                }
             }
         }
         if (plugin instanceof CLIJOpenCLProcessor) {
@@ -161,14 +196,28 @@ public abstract class AbstractCLIJ2Block extends Plugin implements Block, Plugin
             String[] parameter = definedParameter.trim().split(" ");
             String parameterType = parameter[0];
             String parameterName = parameter[1];
+            boolean byref = false;
             if (parameterType.contains("ByRef")) {
                 parameterType = parameter[1];
                 parameterName = parameter[2];
+                byref = true;
             }
 
             if (parameterType.compareTo("Image") == 0) {
-                if (parameterName.toLowerCase().contains("destination")) {
+                if (parameterName.toLowerCase().contains("destination") || byref) {
                     outputParameters.get(parameterName).setValue(parameterValues[i]);
+                }
+            } else if (parameterType.compareTo("Number") == 0) {
+                if (byref) {
+                    outputParameters.get(parameterName).setValue(((Double[])parameterValues[i])[0]);
+                }
+            } else if (parameterType.compareTo("String") == 0) {
+                if (byref) {
+                    outputParameters.get(parameterName).setValue(((String[])parameterValues[i])[0]);
+                }
+            } else if (parameterType.compareTo("Boolean") == 0) {
+                if (byref) {
+                    outputParameters.get(parameterName).setValue(((Boolean[])parameterValues[i])[0]);
                 }
             }
             i++;
