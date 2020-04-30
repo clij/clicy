@@ -22,8 +22,8 @@ blur_sigma_c = 0; // don't blur between channels
 sequence = getSequence();
 
 // init clicy
-clijx = CLICY.getInstance();
-println(clijx.getGPUName());
+clij2 = CLICY.getInstance();
+println(clij2.getGPUName());
 
 // get all images
 println(sequence);
@@ -37,18 +37,18 @@ blurredBuffer = null;
 // go through the sequence frame by frame
 for (timepoint = 0; timepoint < images.size(); timepoint++) {
 	// push image to GPU
-	inputBuffer = clijx.pushIcyBufferedImage(images.get(timepoint));
+	inputBuffer = clij2.pushIcyBufferedImage(images.get(timepoint));
 	
 	// allocate memory on GPU for the result
 	if (blurredBuffer == null) {
-		blurredBuffer = clijx.create(inputBuffer);
+		blurredBuffer = clij2.create(inputBuffer);
 	}
 	
 	// process image on GPU
-	clijx.blur(inputBuffer, blurredBuffer, blur_sigma_x, blur_sigma_y, blur_sigma_c);
+	clij2.gaussianBlur3D(inputBuffer, blurredBuffer, blur_sigma_x, blur_sigma_y, blur_sigma_c);
 	
 	// pull result back from GPU
-	outputImage = clijx.pullIcyBufferedImage(blurredBuffer);
+	outputImage = clij2.pullIcyBufferedImage(blurredBuffer);
 
 	// add it to the new sequence
 	outputSequence.addImage(timepoint, outputImage);

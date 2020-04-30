@@ -10,29 +10,29 @@ importClass(net.haesleinhuepf.clicy.CLICY);
 importClass(Packages.icy.main.Icy);
 
 // init clicy
-clijx = CLICY.getInstance();
-print(clijx.getGPUName());
+clij2 = CLICY.getInstance();
+print(clij2.getGPUName());
 
 // get current image from Icy
 sequence = getSequence();
 
 // push image to GPU
-inputBuffer = clijx.pushSequence(sequence);
+inputBuffer = clij2.pushSequence(sequence);
 // allocate memory on GPU for the result
-outputBuffer = clijx.create(inputBuffer);
+outputBuffer = clij2.create(inputBuffer);
 
 // process image on GPU
-clijx.blur(inputBuffer, outputBuffer, 5, 5);
+clij2.gaussianBlur2D(inputBuffer, outputBuffer, 5, 5);
 
 // pull result back from GPU
-output = clijx.pullSequence(outputBuffer);
+output = clij2.pullSequence(outputBuffer);
 
 // Show result
 Icy.addSequence(output);
 
 // free memory of specific images
-clijx.release(inputBuffer);
+clij2.release(inputBuffer);
 
 // clean up all images
-clijx.clear();
+clij2.clear();
 
