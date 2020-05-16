@@ -7,14 +7,14 @@
 	<parent>
 		<groupId>net.haesleinhuepf</groupId>
 		<artifactId>clij-parent-pom</artifactId>
-		<version>1.6.3</version>
+		<version>2.0.0.0-BETA</version>
 	</parent>
 
 	<groupId>net.haesleinhuepf</groupId>
 	<artifactId>clicy</artifactId>
-	<version>0.27.3.1</version>
+	<version>2.0.0.0-BETA</version>
 	<name>CLIJ Icy</name>
-	<description>CLIJ bridge to Icy sequences.</description>
+	<description>CLIJ2 bridge to Icy sequences and protocols</description>
 
 	<repositories>
 		<repository>
@@ -64,7 +64,6 @@
 		<dependency>
 			<groupId>net.haesleinhuepf</groupId>
 			<artifactId>clij2_</artifactId>
-			<version>0.27.2</version>
 		</dependency>
 	</dependencies>
 	
