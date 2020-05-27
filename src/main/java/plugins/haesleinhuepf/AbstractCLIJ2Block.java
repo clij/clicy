@@ -5,6 +5,7 @@ import icy.plugin.PluginDescriptor;
 import icy.plugin.abstract_.Plugin;
 import icy.plugin.interface_.PluginBundled;
 import icy.plugin.interface_.PluginLibrary;
+import ij.measure.ResultsTable;
 import net.haesleinhuepf.clij.clearcl.ClearCLBuffer;
 import net.haesleinhuepf.clij.macro.AbstractCLIJPlugin;
 import net.haesleinhuepf.clij.macro.CLIJOpenCLProcessor;
@@ -14,10 +15,9 @@ import net.haesleinhuepf.clij2.utilities.HasAuthor;
 import net.haesleinhuepf.clij2.utilities.HasLicense;
 import plugins.adufour.blocks.lang.Block;
 import plugins.adufour.blocks.util.VarList;
-import plugins.adufour.vars.lang.Var;
-import plugins.adufour.vars.lang.VarBoolean;
-import plugins.adufour.vars.lang.VarDouble;
-import plugins.adufour.vars.lang.VarString;
+import plugins.adufour.vars.lang.*;
+import plugins.adufour.workbooks.*;
+import org.apache.poi.ss.usermodel.Workbook;
 
 public abstract class AbstractCLIJ2Block extends Plugin implements Block, PluginLibrary, PluginBundled {
 
@@ -96,7 +96,9 @@ public abstract class AbstractCLIJ2Block extends Plugin implements Block, Plugin
                 }
             }
         }
+        initializeSpecialCases(plugin);
     }
+
 
     @Override
     public String getMainPluginClassName()
@@ -186,8 +188,10 @@ public abstract class AbstractCLIJ2Block extends Plugin implements Block, Plugin
                 }
             }
         }
-        if (plugin instanceof CLIJOpenCLProcessor) {
-            ((CLIJOpenCLProcessor) plugin).executeCL();
+        if (!executeSpecialCases(clij2, plugin, parameterValues)) {
+            if (plugin instanceof CLIJOpenCLProcessor) {
+                ((CLIJOpenCLProcessor) plugin).executeCL();
+            }
         }
         Recorder.recordCommand(plugin.getName(), parameterValues);
 
@@ -222,6 +226,54 @@ public abstract class AbstractCLIJ2Block extends Plugin implements Block, Plugin
             }
             i++;
         }
+    }
+
+
+    private final String WORKBOOK = "Workbook";
+
+    private void initializeSpecialCases(AbstractCLIJPlugin plugin) {
+        if (plugin instanceof net.haesleinhuepf.clij2.plugins.StatisticsOfBackgroundAndLabelledPixels || plugin instanceof net.haesleinhuepf.clij2.plugins.StatisticsOfImage || plugin instanceof net.haesleinhuepf.clij2.plugins.StatisticsOfLabelledPixels) {
+            outputParameters.add(WORKBOOK, new VarWorkbook("Workbook","Sheet1"));
+        }
+    }
+
+    private boolean executeSpecialCases(CLIJ2 clij2, AbstractCLIJPlugin plugin, Object[] args) {
+        ResultsTable table = new ResultsTable();
+        ClearCLBuffer input = (ClearCLBuffer) args[0];
+
+        if (plugin instanceof net.haesleinhuepf.clij2.plugins.StatisticsOfBackgroundAndLabelledPixels) {
+            ClearCLBuffer labelmap = (ClearCLBuffer) args[1];
+            net.haesleinhuepf.clij2.plugins.StatisticsOfBackgroundAndLabelledPixels.statisticsOfBackgroundAndLabelledPixels(clij2, input, labelmap, table );
+        } else if (plugin instanceof net.haesleinhuepf.clij2.plugins.StatisticsOfImage) {
+            net.haesleinhuepf.clij2.plugins.StatisticsOfImage.statisticsOfImage(clij2, input, table );
+        } else if (plugin instanceof net.haesleinhuepf.clij2.plugins.StatisticsOfLabelledPixels) {
+            ClearCLBuffer labelmap = (ClearCLBuffer) args[1];
+            net.haesleinhuepf.clij2.plugins.StatisticsOfLabelledPixels.statisticsOfLabelledPixels(clij2, input, labelmap, table );
+        } else {
+            return false;
+        }
+
+        // Create an empty workbook
+        Workbook workbook = Workbooks.createEmptyWorkbook();
+
+        // Get a (possibly new) sheet
+        IcySpreadSheet sheet = Workbooks.getSheet(workbook, "Sheet 1");
+
+        // Set the header row (all at once, easier to write!)
+        sheet.setRow(0, table.getHeadings()); // etc.
+
+        for (int row = 0; row < table.size(); row++) {
+            for (String header : table.getHeadings()) {
+                int column = table.getColumnIndex(header);
+                double value = table.getValueAsDouble(column, row);
+                sheet.setValue(row + 1, column, value);
+            }
+        }
+
+        outputParameters.get(WORKBOOK).setValue(workbook);
+
+        //Workbooks.show(wb, “Workbook test”, false);
+        return true;
     }
 
     public void setDescriptor(PluginDescriptor descriptor) {

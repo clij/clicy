@@ -1,0 +1,90 @@
+<protocol VERSION="4">
+<blocks>
+<block ID="1845508485" blockType="plugins.haesleinhuepf.implementations.CLIJ2_PushSequenceBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ push sequence" height="83" keepsResults="true" width="221" xLocation="37" yLocation="72">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" value="C:/structure/data/blobs.tif" visible="true"/>
+</input>
+<output>
+<variable ID="output" name="input" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1471871341" blockType="plugins.haesleinhuepf.implementations.generated.CLIJ2_ThresholdOtsuBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ threshold otsu" height="115" keepsResults="true" width="221" xLocation="342" yLocation="50">
+<variables>
+<input>
+<variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="destination" name="destination" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="2035543692" blockType="plugins.haesleinhuepf.implementations.generated.CLIJ2_ConnectedComponentsLabelingBoxBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ connected components labeling box" height="115" keepsResults="true" width="342" xLocation="348" yLocation="195">
+<variables>
+<input>
+<variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
+<variable ID="binary_input" name="binary_input" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="labeling_destination" name="labeling_destination" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1003534411" blockType="plugins.haesleinhuepf.implementations.generated.CLIJ2_StatisticsOfBackgroundAndLabelledPixelsBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ statistics of background and labelled pixels" height="137" keepsResults="true" width="385" xLocation="344" yLocation="427">
+<variables>
+<input>
+<variable ID="cl_device" name="cl_device" runtime="false" value="" visible="true"/>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+<variable ID="labelmap" name="labelmap" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="Workbook" name="Workbook" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="2118267106" blockType="plugins.adufour.blocks.tools.Display" className="plugins.adufour.blocks.tools.Display" collapsed="false" definedName="Display" height="218" keepsResults="true" width="1000" xLocation="41" yLocation="597">
+<variables>
+<input>
+<variable ID="object" name="object" runtime="false" type="org.apache.poi.ss.usermodel.Workbook" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="2053163124" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ release buffer" height="61" keepsResults="true" width="218" xLocation="823" yLocation="485">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="43962423" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ release buffer" height="61" keepsResults="true" width="218" xLocation="825" yLocation="393">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="521940023" blockType="plugins.haesleinhuepf.implementations.CLIJ2_ReleaseBufferBlock" className="plugins.haesleinhuepf.CLIJ2Blocks" collapsed="false" definedName="CLI j2_ release buffer" height="61" keepsResults="true" width="218" xLocation="806" yLocation="228">
+<variables>
+<input>
+<variable ID="input" name="input" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+</blocks>
+<links>
+<link dstBlockID="2118267106" dstVarID="object" srcBlockID="1003534411" srcVarID="Workbook"/>
+<link dstBlockID="1003534411" dstVarID="labelmap" srcBlockID="2035543692" srcVarID="labeling_destination"/>
+<link dstBlockID="1003534411" dstVarID="input" srcBlockID="1845508485" srcVarID="output"/>
+<link dstBlockID="1471871341" dstVarID="input" srcBlockID="1845508485" srcVarID="output"/>
+<link dstBlockID="2035543692" dstVarID="binary_input" srcBlockID="1471871341" srcVarID="destination"/>
+<link dstBlockID="521940023" dstVarID="input" srcBlockID="2035543692" srcVarID="binary_input"/>
+<link dstBlockID="2053163124" dstVarID="input" srcBlockID="1003534411" srcVarID="labelmap"/>
+<link dstBlockID="43962423" dstVarID="input" srcBlockID="1003534411" srcVarID="input"/>
+</links>
+</protocol>
