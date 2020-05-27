@@ -76,7 +76,7 @@ After restarting Icy, you should see the toolbar:
 
 Example code for Icys script editor can be found in the [javascript](https://github.com/clij/clicy/tree/master/src/main/javascript) directory. 
 Example Icy protocols can be found in the [protocols](https://github.com/clij/clicy/tree/master/src/main/protocols) directory. 
-Also feel free to copy paste from the [CLIJ2 documentation](https://github.com/clij/clij2-docs/reference), it contains Icy code snippets.
+Also feel free to copy paste from the [CLIJ2 documentation](https://clij.github.io/clij2-docs/reference), it contains Icy code snippets.
 
 ## Please note
 clicy is under testing right now. Release is planned in June 2020. Please report any issues. Feedback is very welcome!
