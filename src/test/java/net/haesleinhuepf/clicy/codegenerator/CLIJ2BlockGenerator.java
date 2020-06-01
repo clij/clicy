@@ -63,7 +63,9 @@ public class CLIJ2BlockGenerator {
             "MeanOfPixelsAboveThreshold," +
             "PullLabelsToROIList," +
             "SumImageSliceBySlice," +
-            "MeanSquaredError,").toLowerCase();
+            "MeanSquaredError," +
+            "MeanOfPixelsAboveThreshold," +
+            "PullLabelsToROIList,").toLowerCase();
 
     public static void main(String ... args) {
         CLIJMacroPluginService service = new Context(CLIJMacroPluginService.class).getService(CLIJMacroPluginService.class);
