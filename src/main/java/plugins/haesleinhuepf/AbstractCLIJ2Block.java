@@ -294,6 +294,9 @@ public abstract class AbstractCLIJ2Block extends Plugin implements Block, Plugin
         return descriptor.getName();
     }
 
+    public AbstractCLIJPlugin getCLIJ2Plugin() {
+        return plugin;
+    }
 
 
 }
