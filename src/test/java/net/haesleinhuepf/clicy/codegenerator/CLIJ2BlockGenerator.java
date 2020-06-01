@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CLIJ2BlockGenerator {
 
-    private static final String blocklist = new String(",pushArray," +
+    private static String blocklist = new String(",pushArray," +
             "push," +
             "pushCurrentSlice," +
             "pushCurrentZStack," +
@@ -33,13 +33,37 @@ public class CLIJ2BlockGenerator {
             "pushResultsTable," +
             "pushResultsTableColumn," +
             "pullToResultsTable," +
+            "pullToCurrentSliceSelection," +
+            "pullToCurrentSlice," +
+            "pushCurrentSliceSelection," +
             "stopwatch," +
             "release," +
             "help," +
             "blur2D," +
             "blur3D," +
             "blur3DSliceBySlice," +
-            "clinfo,").toLowerCase();
+            "clinfo," +
+            "centerOfMass," +
+            "boundingBox," +
+            "gpuProperties," +
+            "jaccardIndex," +
+            "listavailablegpus," +
+            "meanofallpixels," +
+            "meanofmaskedpixels," +
+            "maximumofmaskedpixels," +
+            "minimumofmaskedpixels," +
+            "sumofallpixels," +
+            "minimumofallpixels," +
+            "maximumofallpixels," +
+            "print," +
+            "SorensenDiceCoefficient," +
+            "StartTimeTracing," +
+            "StopTimeTracing," +
+            "GetTimeTracing," +
+            "MeanOfPixelsAboveThreshold," +
+            "PullLabelsToROIList," +
+            "SumImageSliceBySlice," +
+            "MeanSquaredError,").toLowerCase();
 
     public static void main(String ... args) {
         CLIJMacroPluginService service = new Context(CLIJMacroPluginService.class).getService(CLIJMacroPluginService.class);
@@ -55,6 +79,8 @@ public class CLIJ2BlockGenerator {
             if (plugin instanceof OffersDocumentation) {
                 documentation = ((OffersDocumentation) plugin).getDescription();
             }
+
+            blocklist = blocklist.toLowerCase();
 
             if (!blocklist.contains("," + simpleClassName.toLowerCase() + ",")) {
                 generateWrapper(simpleClassName, fullClassName, documentation);

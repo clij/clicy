@@ -2,6 +2,8 @@ package plugins.haesleinhuepf.buttons;
 import icy.sequence.Sequence;
 import net.haesleinhuepf.clicy.CLICY;
 import net.haesleinhuepf.clij.clearcl.ClearCLBuffer;
+import net.haesleinhuepf.clij.macro.AbstractCLIJPlugin;
+import net.haesleinhuepf.clij.macro.documentation.OffersDocumentation;
 import plugins.adufour.ezplug.*;
 import plugins.adufour.vars.lang.Var;
 import plugins.adufour.vars.lang.VarBoolean;
@@ -87,20 +89,36 @@ public class GetMeanOfAllPixels extends EzPlug {
     }
 
     private void handleVar(Var var) {
+        AbstractCLIJPlugin clij2Plugin = plugin.getCLIJ2Plugin();
+
         if (var instanceof VarClearCLBuffer) {
             EzVarSequence evs = new EzVarSequence(var.getName());
+            if (clij2Plugin instanceof OffersDocumentation) {
+                evs.setToolTipText(((OffersDocumentation) clij2Plugin).getDescription());
+            }
             addEzComponent(evs);
             ezVar.add(evs);
         } else if (var instanceof VarDouble) {
             EzVarDouble evs = new EzVarDouble(var.getName());
+            if (clij2Plugin instanceof OffersDocumentation) {
+                evs.setToolTipText(((OffersDocumentation) clij2Plugin).getDescription());
+            }
             addEzComponent(evs);
             ezVar.add(evs);
         } else if (var instanceof VarBoolean) {
             EzVarBoolean evs = new EzVarBoolean(var.getName(), ((VarBoolean) var).getDefaultValue());
+            if (clij2Plugin instanceof OffersDocumentation) {
+                evs.setToolTipText(((OffersDocumentation) clij2Plugin).getDescription());
+            }
             addEzComponent(evs);
             ezVar.add(evs);
         } else if (var instanceof VarString) {
             EzVarText evs = new EzVarText(var.getName());
+            if (var.getName().compareTo("cl_device") == 0) {
+                evs.setToolTipText("Name of the GPU to use. Must be empty or identical in a given workflow.");
+            } else if (clij2Plugin instanceof OffersDocumentation) {
+                evs.setToolTipText(((OffersDocumentation) clij2Plugin).getDescription());
+            }
             addEzComponent(evs);
             ezVar.add(evs);
         }
