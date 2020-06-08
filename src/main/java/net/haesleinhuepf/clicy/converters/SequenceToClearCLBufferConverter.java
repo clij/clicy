@@ -35,11 +35,11 @@ public class SequenceToClearCLBufferConverter extends AbstractCLIJConverter<Sequ
         dimensions[1] = source.getHeight();
 
         long numberOfPixels = dimensions[0] * dimensions[1];
-        if (images.size() > 1) {
+        if (images.size() > 1 || images.get(0).getSizeC() > 1) {
             dimensions = new long[3];
             dimensions[0] = source.getWidth();
             dimensions[1] = source.getHeight();
-            dimensions[2] = images.size();
+            dimensions[2] = images.size() * images.get(0).getSizeC();
             numberOfPixels = numberOfPixels * dimensions[2];
         }
         //IJ.log("images: " + images.size());
@@ -51,9 +51,11 @@ public class SequenceToClearCLBufferConverter extends AbstractCLIJConverter<Sequ
             ClearCLBuffer target = clij.createCLBuffer(dimensions, NativeTypeEnum.UnsignedByte);
 
             byte[] inputArray = new byte[(int) numberOfPixels];
-            for (int z = 0; z < target.getDepth(); z++) {
-                byte[] sourceArray = images.get(z).getDataXYAsByte(0);
-                System.arraycopy(sourceArray, 0, inputArray, z * numberOfPixelsPerSlice, sourceArray.length);
+            for (int z = 0; z < images.size(); z++) {
+                for (int c = 0; c < images.get(0).getSizeC(); c++) {
+                    byte[] sourceArray = images.get(z).getDataXYAsByte(c);
+                    System.arraycopy(sourceArray, 0, inputArray, z * numberOfPixelsPerSlice, sourceArray.length);
+                }
             }
             ByteBuffer byteBuffer = ByteBuffer.wrap(inputArray);
             target.readFrom(byteBuffer, true);
@@ -65,9 +67,11 @@ public class SequenceToClearCLBufferConverter extends AbstractCLIJConverter<Sequ
             //IJ.log("start copy");
             long time = System.currentTimeMillis();
             short[] inputArray = new short[(int) numberOfPixels];
-            for (int z = 0; z < target.getDepth(); z++) {
-                short[] sourceArray = images.get(z).getDataXYAsShort(0);
-                System.arraycopy(sourceArray, 0, inputArray, z * numberOfPixelsPerSlice, sourceArray.length);
+            for (int z = 0; z < images.size(); z++) {
+                for (int c = 0; c < images.get(0).getSizeC(); c++) {
+                    short[] sourceArray = images.get(z).getDataXYAsShort(c);
+                    System.arraycopy(sourceArray, 0, inputArray, z * numberOfPixelsPerSlice, sourceArray.length);
+                }
             }
             //IJ.log("Copy1 took " + (System.currentTimeMillis() - time));
 
@@ -80,9 +84,11 @@ public class SequenceToClearCLBufferConverter extends AbstractCLIJConverter<Sequ
             ClearCLBuffer target = clij.createCLBuffer(dimensions, NativeTypeEnum.Float);
 
             float[] inputArray = new float[(int) numberOfPixels];
-            for (int z = 0; z < target.getDepth(); z++) {
-                float[] sourceArray = images.get(z).getDataXYAsFloat(0);
-                System.arraycopy(sourceArray, 0, inputArray, z * numberOfPixelsPerSlice, sourceArray.length);
+            for (int z = 0; z < images.size(); z++) {
+                for (int c = 0; c < images.get(0).getSizeC(); c++) {
+                    float[] sourceArray = images.get(z).getDataXYAsFloat(c);
+                    System.arraycopy(sourceArray, 0, inputArray, z * numberOfPixelsPerSlice, sourceArray.length);
+                }
             }
             FloatBuffer byteBuffer = FloatBuffer.wrap(inputArray);
             target.readFrom(byteBuffer, true);
