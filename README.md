@@ -78,10 +78,6 @@ Example code for Icys script editor can be found in the [javascript](https://git
 Example Icy protocols can be found in the [protocols](https://github.com/clij/clicy/tree/master/src/main/protocols) directory. 
 Also feel free to copy paste from the [CLIJ2 documentation](https://clij.github.io/clij2-docs/reference), it contains Icy code snippets.
 
-## Please note
-clicy is under testing right now. Release is planned in June 2020. Please report any issues. Feedback is very welcome!
-Thanks for your support!
-
 [Back to CLIJ documentation](https://clij.github.io/)
 
 [Imprint](https://clij.github.io/imprint)
