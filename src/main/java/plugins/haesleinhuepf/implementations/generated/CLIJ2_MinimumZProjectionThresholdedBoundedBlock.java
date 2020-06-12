@@ -5,7 +5,7 @@ import net.haesleinhuepf.clij2.plugins.MinimumZProjectionThresholdedBounded;
 public class CLIJ2_MinimumZProjectionThresholdedBoundedBlock extends AbstractCLIJ2Block {
    
     /**
-     * Determines the minimum projection of all pixels in an image above a given threshold along Z within a given z range.
+     * Determines the minimum intensity projection of all pixels in an image above a given threshold along Z within a given z range.
      */
     public CLIJ2_MinimumZProjectionThresholdedBoundedBlock() {
         super(new MinimumZProjectionThresholdedBounded());

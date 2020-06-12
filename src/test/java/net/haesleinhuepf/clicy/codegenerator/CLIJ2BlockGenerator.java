@@ -73,23 +73,24 @@ public class CLIJ2BlockGenerator {
         int count = 0;
         for (String name : service.getCLIJMethodNames()) {
             CLIJMacroPlugin plugin = service.getCLIJMacroPlugin(name);
+            if (!plugin.getClass().getPackage().toString().contains(".clij.")) {
 
-            String fullClassName = plugin.getClass().getName();
-            String simpleClassName = plugin.getClass().getSimpleName();
+                String fullClassName = plugin.getClass().getName();
+                String simpleClassName = plugin.getClass().getSimpleName();
 
-            String documentation = "";
-            if (plugin instanceof OffersDocumentation) {
-                documentation = ((OffersDocumentation) plugin).getDescription();
+                String documentation = "";
+                if (plugin instanceof OffersDocumentation) {
+                    documentation = ((OffersDocumentation) plugin).getDescription();
+                }
+
+                blocklist = blocklist.toLowerCase();
+
+                if (!blocklist.contains("," + simpleClassName.toLowerCase() + ",")) {
+                    generateWrapper(simpleClassName, fullClassName, documentation);
+                    generateButton(simpleClassName);
+                    count++;
+                }
             }
-
-            blocklist = blocklist.toLowerCase();
-
-            if (!blocklist.contains("," + simpleClassName.toLowerCase() + ",")) {
-                generateWrapper(simpleClassName, fullClassName, documentation);
-                generateButton(simpleClassName);
-                count++;
-            }
-
             //break;
         }
 

@@ -5,7 +5,7 @@ import net.haesleinhuepf.clij2.plugins.Mask;
 public class CLIJ2_MaskBlock extends AbstractCLIJ2Block {
    
     /**
-     * Computes a masked image by applying a mask to an image. 
+     * Computes a masked image by applying a binary mask to an image. 
      * 
      * All pixel values x of image X will be copied
      * to the destination image in case pixel value m at the same position in the mask image is not equal to 

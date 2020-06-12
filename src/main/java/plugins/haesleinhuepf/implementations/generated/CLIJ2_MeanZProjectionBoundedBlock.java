@@ -5,7 +5,7 @@ import net.haesleinhuepf.clij2.plugins.MeanZProjectionBounded;
 public class CLIJ2_MeanZProjectionBoundedBlock extends AbstractCLIJ2Block {
    
     /**
-     * Determines the mean projection of an image along Z within a given z range.
+     * Determines the mean average intensity projection of an image along Z within a given z range.
      */
     public CLIJ2_MeanZProjectionBoundedBlock() {
         super(new MeanZProjectionBounded());

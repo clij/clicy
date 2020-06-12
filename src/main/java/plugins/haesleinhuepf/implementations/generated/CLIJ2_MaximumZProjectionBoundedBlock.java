@@ -5,7 +5,7 @@ import net.haesleinhuepf.clij2.plugins.MaximumZProjectionBounded;
 public class CLIJ2_MaximumZProjectionBoundedBlock extends AbstractCLIJ2Block {
    
     /**
-     * Determines the maximum projection of an image along Z within a given z range.
+     * Determines the maximum intensity projection of an image along Z within a given z range.
      */
     public CLIJ2_MaximumZProjectionBoundedBlock() {
         super(new MaximumZProjectionBounded());

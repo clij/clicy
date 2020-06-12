@@ -1,12 +1,10 @@
 package plugins.haesleinhuepf.implementations.generated;
 import plugins.haesleinhuepf.AbstractCLIJ2Block;
-import net.haesleinhuepf.clij.macro.modules.AffineTransform;
+import net.haesleinhuepf.clij2.plugins.AffineTransform;
 // this is generated code. See src/test/java/net/haesleinhuepf/clicy/codegenerator for details
 public class CLIJ2_AffineTransformBlock extends AbstractCLIJ2Block {
    
     /**
-     * CLIJ affineTransform is deprecated. Use affineTransform2D or affineTransform3D instead.
-     * 
      * Applies an affine transform to a 3D image. Individual transforms must be separated by spaces.
      * 
      * Supported transforms:

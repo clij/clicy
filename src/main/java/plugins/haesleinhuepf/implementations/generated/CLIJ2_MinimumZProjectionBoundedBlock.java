@@ -5,7 +5,7 @@ import net.haesleinhuepf.clij2.plugins.MinimumZProjectionBounded;
 public class CLIJ2_MinimumZProjectionBoundedBlock extends AbstractCLIJ2Block {
    
     /**
-     * Determines the minimum projection of an image along Z within a given z range.
+     * Determines the minimum intensity projection of an image along Z within a given z range.
      */
     public CLIJ2_MinimumZProjectionBoundedBlock() {
         super(new MinimumZProjectionBounded());

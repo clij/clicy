@@ -1,6 +1,6 @@
 package plugins.haesleinhuepf.implementations.generated;
 import plugins.haesleinhuepf.AbstractCLIJ2Block;
-import net.haesleinhuepf.clij.macro.modules.SubtractImages;
+import net.haesleinhuepf.clij2.plugins.SubtractImages;
 // this is generated code. See src/test/java/net/haesleinhuepf/clicy/codegenerator for details
 public class CLIJ2_SubtractImagesBlock extends AbstractCLIJ2Block {
    

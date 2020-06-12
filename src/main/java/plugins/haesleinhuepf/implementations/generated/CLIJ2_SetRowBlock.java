@@ -6,8 +6,6 @@ public class CLIJ2_SetRowBlock extends AbstractCLIJ2Block {
    
     /**
      * Sets all pixel values x of a given row in X to a constant value v.
-     * 
-     * <pre>f(x) = v</pre>
      */
     public CLIJ2_SetRowBlock() {
         super(new SetRow());

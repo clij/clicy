@@ -1,5 +1,6 @@
 package plugins.haesleinhuepf;
 
+import icy.plugin.interface_.PluginBundled;
 import icy.preferences.WorkspaceLocalPreferences;
 import icy.sequence.Sequence;
 import icy.workspace.WorkspaceLoader;
@@ -18,7 +19,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.HashMap;
 
-public class InstallClicyToolbar extends EzPlug {
+public class InstallClicyToolbar extends EzPlug implements PluginBundled {
 
     @Override
     public void clean() {
@@ -212,5 +213,10 @@ public class InstallClicyToolbar extends EzPlug {
         WorkspaceLocalPreferences.setWorkspaceEnable("clij2", true);
 
         IJ.log("Clicy toolbar installed successfully. Please restart Icy.");
+    }
+
+    @Override
+    public String getMainPluginClassName() {
+        return CLIJ2Blocks.class.getName();
     }
 }

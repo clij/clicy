@@ -11,6 +11,8 @@ public class CLIJ2_MaximumXYZProjectionBlock extends AbstractCLIJ2Block {
      * Y = 1
      * Z = 2
      * 
+     * 
+     * DEPRECATED: This method is deprecated. Use CLIJ2 instead.
      */
     public CLIJ2_MaximumXYZProjectionBlock() {
         super(new MaximumXYZProjection());

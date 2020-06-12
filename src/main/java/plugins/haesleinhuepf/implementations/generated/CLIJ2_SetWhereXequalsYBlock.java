@@ -9,8 +9,6 @@ public class CLIJ2_SetWhereXequalsYBlock extends AbstractCLIJ2Block {
      * 
      * Otherwise the pixel is not overwritten.
      * If you want to initialize an identity transfrom matrix, set all pixels to 0 first.
-     * 
-     * <pre>f(a) = v</pre>
      */
     public CLIJ2_SetWhereXequalsYBlock() {
         super(new SetWhereXequalsY());

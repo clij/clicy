@@ -5,7 +5,7 @@ import net.haesleinhuepf.clij2.plugins.MaximumXProjection;
 public class CLIJ2_MaximumXProjectionBlock extends AbstractCLIJ2Block {
    
     /**
-     * Determines the maximum projection of an image along X.
+     * Determines the maximum intensity projection of an image along X.
      */
     public CLIJ2_MaximumXProjectionBlock() {
         super(new MaximumXProjection());

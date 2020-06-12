@@ -1,6 +1,6 @@
 package plugins.haesleinhuepf.implementations.generated;
 import plugins.haesleinhuepf.AbstractCLIJ2Block;
-import net.haesleinhuepf.clij.macro.modules.AddImages;
+import net.haesleinhuepf.clij2.plugins.AddImages;
 // this is generated code. See src/test/java/net/haesleinhuepf/clicy/codegenerator for details
 public class CLIJ2_AddImagesBlock extends AbstractCLIJ2Block {
    
