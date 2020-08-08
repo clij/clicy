@@ -8,8 +8,6 @@ public class CLIJ2_LabelVoronoiOctagonBlock extends AbstractCLIJ2Block {
      * Takes a labelled image and dilates the labels using a octagon shape until they touch. 
      * 
      * The pixels where  the regions touched are afterwards returned as binary image which corresponds to the Voronoi diagram.
-     * 
-     * DEPRECATED: Use VoronoiLabelin instead.
      */
     public CLIJ2_LabelVoronoiOctagonBlock() {
         super(new LabelVoronoiOctagon());
