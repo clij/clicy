@@ -59,7 +59,7 @@ clij2.clear():
  
 
 ## Installation
-[Download Icy](http://icy.bioimageanalysis.org/download/). Enter "clicy" in Icys search field on top and click on install. Voilá. 
+[Download Icy](http://icy.bioimageanalysis.org/download/). Enter "clicy" in Icys search field on top and click on install. Voilà. 
 
 If you want to have the ClIcy toolbar as well, run the "InstallClicyToolbar" plugin:
 
