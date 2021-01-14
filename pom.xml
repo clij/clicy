@@ -75,7 +75,7 @@
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>1</version>
+			<version>3.17</version>
 			<scope>system</scope>
 			<systemPath>C:/programs/icy_all_2.0.3.0/plugins/adufour/poi/POI.jar</systemPath>
 		</dependency>
