@@ -7,12 +7,12 @@
 	<parent>
 		<groupId>net.haesleinhuepf</groupId>
 		<artifactId>clij-parent-pom</artifactId>
-		<version>2.2.0.14</version>
+		<version>2.2.0.19</version>
 	</parent>
 
 	<groupId>net.haesleinhuepf</groupId>
 	<artifactId>clicy</artifactId>
-	<version>2.2.0.14</version>
+	<version>2.2.0.19</version>
 	<name>CLIJ Icy</name>
 	<description>CLIJ2 bridge to Icy sequences and protocols</description>
 
@@ -29,35 +29,35 @@
 			<groupId>..</groupId>
 			<version>1</version>
 			<scope>system</scope>
-			<systemPath>C:/Programs/icy_all_2.0.3.0/plugins/adufour/ezplug/EzPlug.jar</systemPath>
+			<systemPath>C:/Programs/icy-all-2.1.2.0/plugins/adufour/ezplug/EzPlug.jar</systemPath>
 		</dependency>
 		<dependency>
 			<artifactId>.icy.</artifactId>
 			<groupId>..</groupId>
 			<version>1</version>
 			<scope>system</scope>
-			<systemPath>C:/Programs/icy_all_2.0.3.0/icy.jar</systemPath>
+			<systemPath>C:/Programs/icy-all-2.1.2.0/icy.jar</systemPath>
 		</dependency>
 		<dependency>
 			<artifactId>.blocks.</artifactId>
 			<groupId>..</groupId>
 			<version>1</version>
 			<scope>system</scope>
-			<systemPath>C:/Programs/icy_all_2.0.3.0/plugins/adufour/blocks/Blocks.jar</systemPath>
+			<systemPath>C:/Programs/icy-all-2.1.2.0/plugins/adufour/blocks/Blocks.jar</systemPath>
 		</dependency>
 		<dependency>
 			<artifactId>.protocols.</artifactId>
 			<groupId>..</groupId>
 			<version>1</version>
 			<scope>system</scope>
-			<systemPath>C:/Programs/icy_all_2.0.3.0/plugins/adufour/protocols/Protocols.jar</systemPath>
+			<systemPath>C:/Programs/icy-all-2.1.2.0/plugins/adufour/protocols/Protocols.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>..</groupId>
 			<artifactId>.workbooks.</artifactId>
 			<version>1</version>
 			<scope>system</scope>
-			<systemPath>C:/programs/icy_all_2.0.3.0/plugins/adufour/workbooks/Workbooks.jar</systemPath>
+			<systemPath>C:/programs/icy-all-2.1.2.0/plugins/adufour/workbooks/Workbooks.jar</systemPath>
 		</dependency>
 
 		<dependency>
@@ -65,7 +65,7 @@
 			<groupId>..</groupId>
 			<version>1</version>
 			<scope>system</scope>
-			<systemPath>C:/Programs/icy_all_2.0.3.0/plugins/tprovoost/scripteditor/main/ScriptEditorPlugin.jar</systemPath>
+			<systemPath>C:/Programs/icy-all-2.1.2.0/plugins/tprovoost/scripteditor/main/ScriptEditorPlugin.jar</systemPath>
 		</dependency>
 
 		<dependency>
@@ -77,7 +77,7 @@
 			<artifactId>poi</artifactId>
 			<version>1</version>
 			<scope>system</scope>
-			<systemPath>C:/programs/icy_all_2.0.3.0/plugins/adufour/poi/POI.jar</systemPath>
+			<systemPath>C:/programs/icy-all-2.1.2.0/plugins/adufour/poi/POI.jar</systemPath>
 		</dependency>
 	</dependencies>
 	
