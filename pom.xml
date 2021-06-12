@@ -7,17 +7,22 @@
 	<parent>
 		<groupId>net.haesleinhuepf</groupId>
 		<artifactId>clij-parent-pom</artifactId>
-		<version>2.3.0.6</version>
+		<version>2.5.0.1</version>
 	</parent>
 
 	<groupId>net.haesleinhuepf</groupId>
 	<artifactId>clicy</artifactId>
-	<version>2.3.0.6</version>
+	<version>2.5.0.1</version>
 	<name>CLIJ Icy</name>
 	<description>CLIJ2 bridge to Icy sequences and protocols</description>
 
 
 	<dependencies>
+		<dependency>
+			<groupId>net.haesleinhuepf</groupId>
+			<artifactId>clij2_</artifactId>
+		</dependency>
+
 		<dependency>
 			<artifactId>.EzPlug.</artifactId>
 			<groupId>..</groupId>
@@ -62,10 +67,6 @@
 			<systemPath>C:/Programs/icy-all-2.1.2.0/plugins/tprovoost/scripteditor/main/ScriptEditorPlugin.jar</systemPath>
 		</dependency>
 
-		<dependency>
-			<groupId>net.haesleinhuepf</groupId>
-			<artifactId>clij2_</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
