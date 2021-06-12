@@ -21,6 +21,16 @@
 		<dependency>
 			<groupId>net.haesleinhuepf</groupId>
 			<artifactId>clij2_</artifactId>
+			<exclusions>
+				<exclusion>  <!-- declare the exclusion here -->
+					<groupId>edu.mines</groupId>
+					<artifactId>mines-jtk</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.github.sbridges.object-inspector</groupId>
+					<artifactId>object-inspector</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
