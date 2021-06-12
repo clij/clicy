@@ -5,6 +5,8 @@ import net.haesleinhuepf.clij2.plugins.GetAutomaticThreshold;
 public class CLIJ2_GetAutomaticThresholdBlock extends AbstractCLIJ2Block {
    
     /**
+     * Determines a threshold according to a given method and saves it to the threshold_value variable.
+     * 
      * The automatic thresholder utilizes the threshold methods from ImageJ on a histogram determined on 
      * the GPU to determine a threshold value as similar as possible to ImageJ 'Apply Threshold' method. 
      * 

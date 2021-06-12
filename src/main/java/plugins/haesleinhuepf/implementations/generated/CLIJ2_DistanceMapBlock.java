@@ -9,6 +9,7 @@ public class CLIJ2_DistanceMapBlock extends AbstractCLIJ2Block {
      * 
      * Pixels with non-zero value in the binary image are set to a number representing the distance to the closest zero-value pixel.
      * 
+     * Note: This function is known to be slow. See the web for alternatives: 
      * Note: This is not a distance matrix. See generateDistanceMatrix for details.
      */
     public CLIJ2_DistanceMapBlock() {

@@ -5,8 +5,7 @@ import net.haesleinhuepf.clij2.plugins.PointlistToLabelledSpots;
 public class CLIJ2_PointlistToLabelledSpotsBlock extends AbstractCLIJ2Block {
    
     /**
-     * Takes a pointlist with dimensions n*d with n point coordinates in d dimensions and a touch matrix of 
-     * size n*n to draw lines from all points to points if the corresponding pixel in the touch matrix is 1.
+     * Takes a pointlist with dimensions n times d with n point coordinates in d dimensions and labels corresponding pixels.
      */
     public CLIJ2_PointlistToLabelledSpotsBlock() {
         super(new PointlistToLabelledSpots());

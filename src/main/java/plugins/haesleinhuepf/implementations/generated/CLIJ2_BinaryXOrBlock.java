@@ -11,6 +11,16 @@ public class CLIJ2_BinaryXOrBlock extends AbstractCLIJ2Block {
      * All pixel values except 0 in the input images are interpreted as 1.
      * 
      * <pre>f(x, y) = (x & !y) | (!x & y)</pre>
+     * 
+     * Parameters
+     * ----------
+     * operand1 : Image
+     *     The first binary input image to be processed.
+     * operand2 : Image
+     *     The second binary input image to be processed.
+     * destination : Image
+     *     The output image where results are written into.
+     * 
      */
     public CLIJ2_BinaryXOrBlock() {
         super(new BinaryXOr());

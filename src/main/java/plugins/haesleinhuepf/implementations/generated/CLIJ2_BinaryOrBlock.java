@@ -9,6 +9,16 @@ public class CLIJ2_BinaryOrBlock extends AbstractCLIJ2Block {
      * pixels x and y with the binary OR operator |.
      * 
      * All pixel values except 0 in the input images are interpreted as 1.<pre>f(x, y) = x | y</pre>
+     * 
+     * Parameters
+     * ----------
+     * operand1 : Image
+     *     The first binary input image to be processed.
+     * operand2 : Image
+     *     The second binary input image to be processed.
+     * destination : Image
+     *     The output image where results are written into.
+     * 
      */
     public CLIJ2_BinaryOrBlock() {
         super(new BinaryOr());

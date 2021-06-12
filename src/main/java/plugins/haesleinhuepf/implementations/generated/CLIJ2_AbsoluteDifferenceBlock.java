@@ -6,6 +6,18 @@ public class CLIJ2_AbsoluteDifferenceBlock extends AbstractCLIJ2Block {
    
     /**
      * Determines the absolute difference pixel by pixel between two images.
+     * 
+     * <pre>f(x, y) = |x - y| </pre>
+     * 
+     * Parameters
+     * ----------
+     * source1 : Image
+     *     The input image to be subtracted from.
+     * source2 : Image
+     *     The input image which is subtracted.
+     * destination : Image
+     *     The output image  where results are written into.
+     * 
      */
     public CLIJ2_AbsoluteDifferenceBlock() {
         super(new AbsoluteDifference());

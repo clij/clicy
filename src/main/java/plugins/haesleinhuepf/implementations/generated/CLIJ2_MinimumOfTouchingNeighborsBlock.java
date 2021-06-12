@@ -7,6 +7,14 @@ public class CLIJ2_MinimumOfTouchingNeighborsBlock extends AbstractCLIJ2Block {
     /**
      * Takes a touch matrix and a vector of values to determine the minimum value among touching neighbors for every object. 
      * 
+     * Parameters
+     * ----------
+     * values : Image
+     *     A vector of values corresponding to the labels of which the minimum should be determined.
+     * touch_matrix : Image
+     *     A touch_matrix specifying which labels are taken into account for neighborhood relationships.
+     * minimum_values_destination : Image
+     *     A the resulting vector of minimum values in the neighborhood.
      * 
      */
     public CLIJ2_MinimumOfTouchingNeighborsBlock() {

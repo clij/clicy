@@ -6,6 +6,16 @@ public class CLIJ2_BinarySubtractBlock extends AbstractCLIJ2Block {
    
     /**
      * Subtracts one binary image from another.
+     * 
+     * Parameters
+     * ----------
+     * minuend : Image
+     *     The first binary input image to be processed.
+     * suubtrahend : Image
+     *     The second binary input image to be subtracted from the first.
+     * destination : Image
+     *     The output image where results are written into.
+     * 
      */
     public CLIJ2_BinarySubtractBlock() {
         super(new BinarySubtract());

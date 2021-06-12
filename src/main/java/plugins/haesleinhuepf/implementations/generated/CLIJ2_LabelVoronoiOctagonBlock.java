@@ -5,7 +5,7 @@ import net.haesleinhuepf.clij2.plugins.LabelVoronoiOctagon;
 public class CLIJ2_LabelVoronoiOctagonBlock extends AbstractCLIJ2Block {
    
     /**
-     * Takes a labelled image and dilates the labels using a octagon shape until they touch. 
+     * Takes a labeled image and dilates the labels using a octagon shape until they touch. 
      * 
      * The pixels where  the regions touched are afterwards returned as binary image which corresponds to the Voronoi diagram.
      */

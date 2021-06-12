@@ -8,6 +8,14 @@ public class CLIJ2_AbsoluteBlock extends AbstractCLIJ2Block {
      * Computes the absolute value of every individual pixel x in a given image.
      * 
      * <pre>f(x) = |x| </pre>
+     * 
+     * Parameters
+     * ----------
+     * source : Image
+     *     The input image to be processed.
+     * destination : Image
+     *     The output image where results are written into.
+     * 
      */
     public CLIJ2_AbsoluteBlock() {
         super(new Absolute());

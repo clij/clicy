@@ -5,9 +5,19 @@ import net.haesleinhuepf.clij2.plugins.MultiplyImages;
 public class CLIJ2_MultiplyImagesBlock extends AbstractCLIJ2Block {
    
     /**
-     * Multiplies all pairs of pixel values x and y from two image X and Y.
+     * Multiplies all pairs of pixel values x and y from two images X and Y.
      * 
      * <pre>f(x, y) = x * y</pre>
+     * 
+     * Parameters
+     * ----------
+     * factor1 : Image
+     *     The first input image to be multiplied.
+     * factor2 : Image
+     *     The second image to be multiplied.
+     * destination : Image
+     *     The output image where results are written into.
+     * 
      */
     public CLIJ2_MultiplyImagesBlock() {
         super(new MultiplyImages());

@@ -6,6 +6,14 @@ public class CLIJ2_TransposeXYBlock extends AbstractCLIJ2Block {
    
     /**
      * Transpose X and Y axes of an image.
+     * 
+     * Parameters
+     * ----------
+     * input : Image
+     *     The input image.
+     * destination : Image
+     *     The output image where results are written into.
+     * 
      */
     public CLIJ2_TransposeXYBlock() {
         super(new TransposeXY());

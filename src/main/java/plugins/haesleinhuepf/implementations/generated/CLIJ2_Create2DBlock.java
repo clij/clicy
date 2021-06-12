@@ -5,9 +5,19 @@ import net.haesleinhuepf.clij2.plugins.Create2D;
 public class CLIJ2_Create2DBlock extends AbstractCLIJ2Block {
    
     /**
-     * Allocated memory for a new 2D image in the GPU memory. 
+     * Allocated memory for a new 2D image in the GPU memory.
      * 
-     * BitDepth must be 8 (unsigned byte), 16 (unsigned short) or 32 (float).
+     * Parameters
+     * ----------
+     * destination : Image
+     *     The new image will be stored in this variable.
+     * width : Number
+     *     The width of the new image.
+     * height : Number
+     *     The height of the new image.
+     * bit-depth : Number
+     *     The bit-depth of the new image. Can be either 8, 16 or 32, to create an image of unsigned-byte, unsigned-short or float type.
+     * 
      */
     public CLIJ2_Create2DBlock() {
         super(new Create2D());

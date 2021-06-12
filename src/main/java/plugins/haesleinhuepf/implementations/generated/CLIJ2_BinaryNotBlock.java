@@ -11,6 +11,14 @@ public class CLIJ2_BinaryNotBlock extends AbstractCLIJ2Block {
      * All pixel values except 0 in the input image are interpreted as 1.
      * 
      * <pre>f(x) = !x</pre>
+     * 
+     * Parameters
+     * ----------
+     * source : Image
+     *     The binary input image to be inverted.
+     * destination : Image
+     *     The output image where results are written into.
+     * 
      */
     public CLIJ2_BinaryNotBlock() {
         super(new BinaryNot());

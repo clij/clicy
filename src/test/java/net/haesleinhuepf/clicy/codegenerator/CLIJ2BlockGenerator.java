@@ -74,6 +74,7 @@ public class CLIJ2BlockGenerator {
         for (String name : service.getCLIJMethodNames()) {
             CLIJMacroPlugin plugin = service.getCLIJMacroPlugin(name);
             if (!plugin.getClass().getPackage().toString().contains(".clij.")) {
+                System.out.println(name);
 
                 String fullClassName = plugin.getClass().getName();
                 String simpleClassName = plugin.getClass().getSimpleName();

@@ -8,6 +8,16 @@ public class CLIJ2_AddImagesBlock extends AbstractCLIJ2Block {
      * Calculates the sum of pairs of pixels x and y of two images X and Y.
      * 
      * <pre>f(x, y) = x + y</pre>
+     * 
+     * Parameters
+     * ----------
+     * summand1 : Image
+     *     The first input image to added.
+     * summand2 : Image
+     *     The second image to be added.
+     * destination : Image
+     *     The output image where results are written into.
+     * 
      */
     public CLIJ2_AddImagesBlock() {
         super(new AddImages());

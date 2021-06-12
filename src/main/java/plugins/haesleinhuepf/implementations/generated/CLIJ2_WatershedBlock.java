@@ -6,6 +6,8 @@ public class CLIJ2_WatershedBlock extends AbstractCLIJ2Block {
    
     /**
      * Apply a binary watershed to a binary image and introduces black pixels between objects.
+     * 
+     * Note: This parallel GPU-accelerated approach delivers results of limited quality.See the web for alternatives: https://github.com/clij/clij2/issues/18
      */
     public CLIJ2_WatershedBlock() {
         super(new Watershed());

@@ -5,7 +5,7 @@ import net.haesleinhuepf.clij2.plugins.Flip3D;
 public class CLIJ2_Flip3DBlock extends AbstractCLIJ2Block {
    
     /**
-     * Flips an image in X, Y and/or Z direction depending on boolean flags.
+     * Flips an image in X, Y and/or Z direction depending on if flip_x, flip_y and/or flip_z are set to true or false.
      */
     public CLIJ2_Flip3DBlock() {
         super(new Flip3D());
