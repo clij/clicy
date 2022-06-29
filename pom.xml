@@ -80,7 +80,7 @@
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>1</version>
+			<version>4.1.1</version>
 			<scope>system</scope>
 			<systemPath>C:/programs/icy-all-2.1.2.0/plugins/adufour/poi/POI.jar</systemPath>
 		</dependency>
